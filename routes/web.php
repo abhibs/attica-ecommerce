@@ -24,6 +24,8 @@ Route::get('/user/wishlist', [HomeController::class, 'wishlist'])->name('user-wi
 Route::get('/user/checkout', [HomeController::class, 'checkout'])->name('user-checkout');
 
 Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
+Route::post('/shop/filter', [ShopController::class, 'shopFilter'])->name('shop-filter');
+
 
 Route::get('/product/detail/{id}/{slug}', [HomeController::class, 'productDetais'])->name('product-detail');
 Route::get('category/product/{id}/{slug}', [HomeController::class, 'catWiseProduct'])->name('category-product');
