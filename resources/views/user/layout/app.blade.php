@@ -6,12 +6,13 @@
     <title>Attica Gold Company</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <!-- Favicon -->    
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user/assets/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('user/assets/css/plugins/animate.min.css') }}" />
@@ -19,6 +20,9 @@
 </head>
 
 <body>
+    @include('user.layout.quickview')
+
+
     @include('user.layout.header')
     <main class="main">
         @yield('content')
@@ -54,6 +58,40 @@
     <!-- Template  JS -->
     <script src="{{ asset('user/assets/js/main.js?v=5.3') }}"></script>
     <script src="{{ asset('user/assets/js/shop.js?v=5.3') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+
+
+
+        function productView(id) {
+            // alert(id)
+            $.ajax({
+                type: 'GET',
+                url: '/product/view/modal/' + id,
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data)
+
+                    $('#pname').text(data.product.name);
+                    $('#ptotal').text(data.product.total);
+                    $('#pprice').text(data.product.price);
+                    $('#pcategory').text(data.product.category.name);
+                    $('#pimage').attr('src', '/' + data.product.image);
+
+                    $('#product_id').val(id);
+                    $('#qty').val(1);
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

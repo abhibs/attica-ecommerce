@@ -67,4 +67,26 @@ class HomeController extends Controller
         return view('user.cat_products', compact('relatedProduct', 'category'));
     }
 
+
+
+
+
+
+
+
+
+
+
+    // ajax
+
+    public function productViewModel($id)
+    {
+        $product = Product::with('category')->findOrFail($id);
+        return response()->json(
+            array(
+                'product' => $product
+            )
+        );
+    }
+
 }

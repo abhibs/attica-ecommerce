@@ -30,6 +30,10 @@ Route::post('/shop/filter', [ShopController::class, 'shopFilter'])->name('shop-f
 Route::get('/product/detail/{id}/{slug}', [HomeController::class, 'productDetais'])->name('product-detail');
 Route::get('category/product/{id}/{slug}', [HomeController::class, 'catWiseProduct'])->name('category-product');
 
+
+Route::get('/product/view/modal/{id}', [HomeController::class, 'productViewModel']);
+
+
 Route::group(['middleware' => 'auth:web'], function () {
     Route::get('user/dashboard', [UserController::class, 'userDashboard'])->name('user-dashboard');
     Route::get('user/logout', [UserController::class, 'userLogout'])->name('user-logout');
