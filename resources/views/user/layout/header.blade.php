@@ -351,7 +351,7 @@
                                 <ul>
                                     @foreach ($categories as $item)
                                         <li>
-                                            <a href="{{ route('category-product', $item->id) }}"> <img
+                                            <a href="{{ route('category-product', [$item->id, $item->slug]) }}"> <img
                                                     src="{{ asset($item->image) }}"
                                                     alt="" />{{ $item->name }}</a>
                                         </li>

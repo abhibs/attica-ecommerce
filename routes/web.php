@@ -23,7 +23,7 @@ Route::get('/user/checkout', [HomeController::class, 'checkout'])->name('user-ch
 
 
 Route::get('/product/detail/{id}/{slug}', [HomeController::class, 'productDetais'])->name('product-detail');
-Route::get('category/product/{id}', [HomeController::class, 'catWiseProduct'])->name('category-product');
+Route::get('category/product/{id}/{slug}', [HomeController::class, 'catWiseProduct'])->name('category-product');
 
 Route::group(['middleware' => 'auth:web'], function () {
     Route::get('user/dashboard', [UserController::class, 'userDashboard'])->name('user-dashboard');
