@@ -430,7 +430,7 @@
                                     <a href="">About</a>
                                 </li>
                                 <li>
-                                    <a href="">Shop</a>
+                                    <a href="{{ route('shop') }}">Shop</a>
                                 </li>
                                 <li>
                                     <a href="">Blog</a>
@@ -555,7 +555,7 @@
                             <a href="">About</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="">Shop</a>
+                            <a href="{{ route('shop') }}">Shop</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="">Blog</a>
