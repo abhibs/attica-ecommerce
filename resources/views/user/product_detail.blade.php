@@ -143,8 +143,8 @@
                                                 </div> --}}
                                             </div>
                                             <div class="product-content-wrap">
-                                                <h2><a href="shop-product-right.html"
-                                                        tabindex="0">{{ $product->name }}</a>
+                                                <h2><a href="{{ route('product-detail', [$item->id, $item->slug]) }}"
+                                                        tabindex="0">{{ $item->name }}</a>
                                                 </h2>
                                                 {{-- <div class="rating-result" title="90%">
                                                     <span> </span>
