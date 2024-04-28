@@ -167,7 +167,7 @@
                                         $filterGold = explode(',', $_GET['gold']);
                                     @endphp
                                 @endif
-                                <label class="fw-900 mt-15">Gold Rate</label>
+                                <label class="fw-900 mt-15">Gold Rates</label>
                                 <div class="custome-checkbox">
                                     @foreach ($golds as $gold)
                                         @php
@@ -179,6 +179,33 @@
                                             onchange="this.form.submit()" />
                                         <label class="form-check-label" for="exampleGold{{ $gold->id }}"><span>Rs.
                                                 {{ $gold->rate }}
+
+                                                ({{ count($products) }})
+                                            </span></label>
+                                        <br />
+                                    @endforeach
+
+
+                                </div>
+
+
+                                @if (!empty($_GET['quality']))
+                                    @php
+                                        $filterQuality = explode(',', $_GET['quality']);
+                                    @endphp
+                                @endif
+                                <label class="fw-900 mt-15">Quality</label>
+                                <div class="custome-checkbox">
+                                    @foreach ($qualities as $quality)
+                                        @php
+                                            $products = App\Models\Product::where('quality_id', $quality->id)->get();
+                                        @endphp
+                                        <input class="form-check-input" type="checkbox" name="quality[]"
+                                            id="exampleQuality{{ $quality->id }}" value="{{ $quality->name }}"
+                                            @if (!empty($filterQuality) && in_array($quality->name, $filterQuality)) checked @endif
+                                            onchange="this.form.submit()" />
+                                        <label class="form-check-label" for="exampleQuality{{ $quality->id }}"><span>
+                                                {{ $quality->name }}
 
                                                 ({{ count($products) }})
                                             </span></label>

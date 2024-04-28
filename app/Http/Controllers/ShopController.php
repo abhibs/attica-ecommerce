@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gold;
+use App\Models\Quality;
 use App\Models\Weight;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -30,6 +31,11 @@ class ShopController extends Controller
             $rates = explode(',', $_GET['gold']);
             $ratesIds = Gold::select('id')->whereIn('rate', $rates)->pluck('id')->toArray();
             $products = Product::whereIn('gold_id', $ratesIds)->get();
+        }
+        if (!empty($_GET['quality'])) {
+            $qualities = explode(',', $_GET['quality']);
+            $qualitiesIds = Quality::select('id')->whereIn('name', $qualities)->pluck('id')->toArray();
+            $products = Product::whereIn('quality_id', $qualitiesIds)->get();
         } else {
             $products = Product::where('status', 1)->orderBy('id', 'DESC')->get();
         }
@@ -37,10 +43,12 @@ class ShopController extends Controller
         $categories = Category::orderBy('name', 'ASC')->get();
         $weights = Weight::get();
         $golds = Gold::get();
+        $qualities = Quality::get();
 
 
 
-        return view('user.shop', compact('categories', 'products', 'weights', 'golds'));
+
+        return view('user.shop', compact('categories', 'products', 'weights', 'golds', 'qualities'));
     }
 
     public function shopFilter(Request $request)
@@ -82,7 +90,18 @@ class ShopController extends Controller
                 }
             }
         }
-        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl);
+
+        $qualityUrl = "";
+        if (!empty($data['quality'])) {
+            foreach ($data['quality'] as $quality) {
+                if (empty($qualityUrl)) {
+                    $qualityUrl .= '&quality=' . $quality;
+                } else {
+                    $qualityUrl .= ',' . $quality;
+                }
+            }
+        }
+        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl . $qualityUrl);
 
     }
 }
