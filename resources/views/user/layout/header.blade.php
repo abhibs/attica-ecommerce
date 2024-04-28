@@ -347,7 +347,7 @@
                             <i class="fi-rs-angle-down"></i>
                         </a>
                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
-                            <div class="d-flex categori-dropdown-inner">
+                            <div class="d-flex justify-content-center categori-dropdown-inner">
                                 <ul>
                                     @foreach ($categories as $item)
                                         <li>
