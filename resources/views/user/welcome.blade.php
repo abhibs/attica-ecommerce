@@ -53,9 +53,11 @@
                     @foreach ($allproducts as $item)
                         <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                             <figure class="img-hover-scale overflow-hidden">
-                                <a href="shop-grid-right.html"><img src="{{ asset($item->image) }}" alt="" /></a>
+                                <a href="{{ route('product-detail', [$item->id, $item->slug]) }}"><img
+                                        src="{{ asset($item->image) }}" alt="" /></a>
                             </figure>
-                            <h6><a href="shop-grid-right.html">{{ $item->name }}</a></h6>
+                            <h6><a href="{{ route('product-detail', [$item->id, $item->slug]) }}">{{ $item->name }}</a>
+                            </h6>
                             {{-- <span>26 items</span> --}}
                         </div>
                     @endforeach
@@ -144,7 +146,7 @@
                                     data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
+                                            <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                                 <img class="default-img" src="{{ asset($item->image) }}" alt="" />
                                                 <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
                                             </a>
@@ -163,9 +165,11 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop-grid-right.html">Gold</a>
+                                            <a href="">Gold</a>
                                         </div>
-                                        <h2><a href="shop-product-right.html">{{ $item->name }}</a></h2>
+                                        <h2><a
+                                                href="{{ route('product-detail', [$item->id, $item->slug]) }}">{{ $item->name }}</a>
+                                        </h2>
                                         <div>
                                             Rating
                                             <span class="font-small ml-5 text-muted"> ({{ $item->rating }})</span>
@@ -210,7 +214,7 @@
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="shop-product-right.html">
+                                                <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                                     <img class="default-img" src="{{ asset($item->image) }}"
                                                         alt="" />
                                                     <img class="hover-img" src="{{ asset($item->image) }}"
@@ -233,7 +237,8 @@
                                             <div class="product-category">
                                                 <a href="shop-grid-right.html">Snack</a>
                                             </div>
-                                            <h2><a href="shop-product-right.html">Seeds of Change Organic Quinoa, Brown, &
+                                            <h2><a href="{{ route('product-detail', [$item->id, $item->slug]) }}">Seeds of
+                                                    Change Organic Quinoa, Brown, &
                                                     Red
                                                     Rice</a></h2>
                                             <div class="product-rate-cover">
@@ -297,7 +302,7 @@
                                         <div class="product-cart-wrap">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
-                                                    <a href="shop-product-right.html">
+                                                    <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                                         <img class="default-img" src="{{ asset($item->image) }}"
                                                             alt="" />
                                                         <img class="hover-img" src="{{ asset($item->image) }}"
@@ -321,7 +326,9 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">{{ $item->category->name }}</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">{{ $item->name }}</a></h2>
+                                                <h2><a
+                                                        href="{{ route('product-detail', [$item->id, $item->slug]) }}">{{ $item->name }}</a>
+                                                </h2>
                                                 <div>
                                                     Rating ({{ $item->rating }})
                                                 </div>
@@ -371,7 +378,7 @@
                                     data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
+                                            <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                                 <img class="default-img" src="{{ asset($item->image) }}"
                                                     alt="" />
                                                 <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
@@ -393,7 +400,8 @@
                                         {{-- <div class="product-category">
                                             <a href="shop-grid-right.html">{{ $item->category->name }}</a>
                                         </div> --}}
-                                        <h2><a href="shop-product-right.html">{{ $item->name }}</a>
+                                        <h2><a
+                                                href="{{ route('product-detail', [$item->id, $item->slug]) }}">{{ $item->name }}</a>
                                         </h2>
                                         <div class="product-rate-cover">
 
@@ -459,7 +467,7 @@
                                     data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
+                                            <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                                 <img class="default-img" src="{{ asset($item->image) }}"
                                                     alt="" />
                                                 <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
@@ -481,7 +489,8 @@
                                         {{-- <div class="product-category">
                                             <a href="shop-grid-right.html">Snack</a>
                                         </div> --}}
-                                        <h2><a href="shop-product-right.html">{{ $item->name }} </a>
+                                        <h2><a href="{{ route('product-detail', [$item->id, $item->slug]) }}">{{ $item->name }}
+                                            </a>
                                         </h2>
                                         {{-- <div class="product-rate-cover">
                                             <div class="product-rate d-inline-block">

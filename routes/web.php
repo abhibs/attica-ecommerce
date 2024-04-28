@@ -22,6 +22,8 @@ Route::get('/user/wishlist', [HomeController::class, 'wishlist'])->name('user-wi
 Route::get('/user/checkout', [HomeController::class, 'checkout'])->name('user-checkout');
 
 
+Route::get('/product/detail/{id}/{slug}', [HomeController::class, 'productDetais'])->name('product-detail');
+
 Route::group(['middleware' => 'auth:web'], function () {
     Route::get('user/dashboard', [UserController::class, 'userDashboard'])->name('user-dashboard');
     Route::get('user/logout', [UserController::class, 'userLogout'])->name('user-logout');

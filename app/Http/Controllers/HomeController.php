@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\MultiImg;
+
 
 
 
@@ -24,13 +26,6 @@ class HomeController extends Controller
 
         return view('user.welcome', compact('allproducts', 'featured_products', 'coinCategoryproducts', 'barCategoryproducts'));
     }
-
-
-
-
-
-
-
 
     public function contact()
     {
@@ -52,5 +47,16 @@ class HomeController extends Controller
         return view('user.checkout');
     }
 
+    public function productDetais($id, $slug)
+    {
+        $product = Product::findOrFail($id);
+        $multiImage = MultiImg::where('product_id', $id)->get();
+        // dd($multiImage);
+
+        $cat_id = $product->category_id;
+        $relatedProduct = Product::where('category_id', $cat_id)->where('id', '!=', $id)->orderBy('id', 'DESC')->limit(4)->get();
+
+        return view('user.product_detail', compact('product', 'multiImage', 'relatedProduct'));
+    }
 
 }
