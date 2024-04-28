@@ -351,7 +351,8 @@
                                 <ul>
                                     @foreach ($categories as $item)
                                         <li>
-                                            <a href="shop-grid-right.html"> <img src="{{ asset($item->image) }}"
+                                            <a href="{{ route('category-product', $item->id) }}"> <img
+                                                    src="{{ asset($item->image) }}"
                                                     alt="" />{{ $item->name }}</a>
                                         </li>
                                     @endforeach

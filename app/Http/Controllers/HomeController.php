@@ -59,4 +59,12 @@ class HomeController extends Controller
         return view('user.product_detail', compact('product', 'multiImage', 'relatedProduct'));
     }
 
+    public function catWiseProduct($id)
+    {
+        $category = Category::where('id', $id)->first();
+        $relatedProduct = Product::where('category_id', $category->id)->orderBy('id', 'DESC')->inRandomOrder()->get();
+
+        return view('user.cat_products', compact('relatedProduct', 'category'));
+    }
+
 }
