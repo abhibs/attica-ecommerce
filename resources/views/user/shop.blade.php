@@ -39,8 +39,8 @@
                                     <div class="product-action-1">
                                         <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
                                                 class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                                class="fi-rs-shuffle"></i></a>
+                                        {{-- <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
+                                                class="fi-rs-shuffle"></i></a> --}}
                                         <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                             data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                     </div>
@@ -98,7 +98,7 @@
                     @csrf
                     <!-- Fillter By Price -->
                     <div class="sidebar-widget price_range range mb-30">
-                        <h5 class="section-title style-1 mb-30">Fill by price</h5>
+                        {{-- <h5 class="section-title style-1 mb-30">Fill by price</h5>
                         <div class="price-filter">
                             <div class="price-filter-inner">
                                 <div id="slider-range" class="mb-20"></div>
@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="list-group">
                             <div class="list-group-item mb-10 mt-10">
                                 @if (!empty($_GET['category']))
@@ -216,8 +216,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
-                            Fillter</a>
+                        {{-- <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
+                            Fillter</a> --}}
                     </div>
                     <!-- Product sidebar Widget -->
                 </form>
