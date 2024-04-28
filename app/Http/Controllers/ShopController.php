@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gold;
 use App\Models\Weight;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -24,15 +25,22 @@ class ShopController extends Controller
             $grams = explode(',', $_GET['weight']);
             $weightIds = Weight::select('id')->whereIn('gram', $grams)->pluck('id')->toArray();
             $products = Product::whereIn('weight_id', $weightIds)->get();
+        }
+        if (!empty($_GET['gold'])) {
+            $rates = explode(',', $_GET['gold']);
+            $ratesIds = Gold::select('id')->whereIn('rate', $rates)->pluck('id')->toArray();
+            $products = Product::whereIn('gold_id', $ratesIds)->get();
         } else {
             $products = Product::where('status', 1)->orderBy('id', 'DESC')->get();
         }
 
         $categories = Category::orderBy('name', 'ASC')->get();
         $weights = Weight::get();
+        $golds = Gold::get();
 
 
-        return view('user.shop', compact('categories', 'products', 'weights'));
+
+        return view('user.shop', compact('categories', 'products', 'weights', 'golds'));
     }
 
     public function shopFilter(Request $request)
@@ -63,7 +71,18 @@ class ShopController extends Controller
             }
         }
 
-        return redirect()->route('shop', $catUrl . $weightUrl);
+
+        $rateUrl = "";
+        if (!empty($data['gold'])) {
+            foreach ($data['gold'] as $gold) {
+                if (empty($rateUrl)) {
+                    $rateUrl .= '&gold=' . $gold;
+                } else {
+                    $rateUrl .= ',' . $gold;
+                }
+            }
+        }
+        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl);
 
     }
 }

@@ -161,6 +161,32 @@
 
 
                                 </div>
+
+                                @if (!empty($_GET['gold']))
+                                    @php
+                                        $filterGold = explode(',', $_GET['gold']);
+                                    @endphp
+                                @endif
+                                <label class="fw-900 mt-15">Gold Rate</label>
+                                <div class="custome-checkbox">
+                                    @foreach ($golds as $gold)
+                                        @php
+                                            $products = App\Models\Product::where('gold_id', $gold->id)->get();
+                                        @endphp
+                                        <input class="form-check-input" type="checkbox" name="gold[]"
+                                            id="exampleGold{{ $gold->id }}" value="{{ $gold->rate }}"
+                                            @if (!empty($filterGold) && in_array($gold->rate, $filterGold)) checked @endif
+                                            onchange="this.form.submit()" />
+                                        <label class="form-check-label" for="exampleGold{{ $gold->id }}"><span>Rs.
+                                                {{ $gold->rate }}
+
+                                                ({{ count($products) }})
+                                            </span></label>
+                                        <br />
+                                    @endforeach
+
+
+                                </div>
                             </div>
                         </div>
                         <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
