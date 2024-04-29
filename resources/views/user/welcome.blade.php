@@ -185,8 +185,9 @@
                                                 <span class="old-price">Rs. {{ $item->price }}</span>
                                             </div>
                                             <div class="add-cart">
-                                                <a class="add" href="shop-cart.html"><i
-                                                        class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                <a class="add"
+                                                    href="{{ route('product-detail', [$item->id, $item->slug]) }}"><i
+                                                        class=""></i>View </a>
                                             </div>
                                         </div>
                                     </div>
@@ -338,8 +339,8 @@
                                                     <span class="old-price">{{ $item->price }}</span>
                                                 </div>
 
-                                                <a href="shop-cart.html" class="btn w-100 hover-up"><i
-                                                        class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
+                                                <a href="{{ route('product-detail', [$item->id, $item->slug]) }}"
+                                                    class="btn w-100 hover-up"><i class="mr-5"></i>View More</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -418,8 +419,9 @@
                                                 <span class="old-price">Rs. {{ $item->price }}</span>
                                             </div>
                                             <div class="add-cart">
-                                                <a class="add" href="shop-cart.html"><i
-                                                        class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                <a class="add"
+                                                    href="{{ route('product-detail', [$item->id, $item->slug]) }}"><i
+                                                        class="mr-5"></i>View </a>
                                             </div>
                                         </div>
                                     </div>
@@ -511,8 +513,9 @@
                                                 <span class="old-price">Rs. {{ $item->price }}</span>
                                             </div>
                                             <div class="add-cart">
-                                                <a class="add" href="shop-cart.html"><i
-                                                        class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                <a class="add"
+                                                    href="{{ route('product-detail', [$item->id, $item->slug]) }}"><i
+                                                        class="mr-5"></i>View </a>
                                             </div>
                                         </div>
                                     </div>

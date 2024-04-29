@@ -5,7 +5,7 @@
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModal"></button>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
@@ -28,9 +28,11 @@
                             </div> --}}
                             <div class="clearfix product-price-cover">
                                 <div class="product-price primary-color float-left">
-                                    <span class="current-price text-brand" id="ptotal">Rs.</span>
+                                    <span class="current-price text-brand">Rs.</span>
+                                    <span class="current-price text-brand" id="ptotal"></span>
                                     <span>
-                                        <span class="old-price font-md ml-15" id="pprice">Rs.</span>
+                                        <span class="old-price font-md ml-15">Rs.</span>
+                                        <span class="old-price font-md ml-15" id="pprice"></span>
                                     </span>
                                 </div>
                             </div>
@@ -42,6 +44,7 @@
                                     <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
                                 </div>
                                 <div class="product-extra-link2">
+                                    <input type="hidden" id="product_id">
                                     <button type="submit" class="button button-add-to-cart" onclick="addToCart()"><i
                                             class="fi-rs-shopping-cart"></i>Add to cart</button>
                                 </div>

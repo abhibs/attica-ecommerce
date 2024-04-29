@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
+
 
 
 
@@ -32,6 +34,17 @@ Route::get('category/product/{id}/{slug}', [HomeController::class, 'catWiseProdu
 
 
 Route::get('/product/view/modal/{id}', [HomeController::class, 'productViewModel']);
+
+
+Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
+
+Route::get('/product/mini/cart', [CartController::class, 'AddMiniCart']);
+
+Route::get('/minicart/product/remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+
+
+Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails']);
+
 
 
 Route::group(['middleware' => 'auth:web'], function () {
