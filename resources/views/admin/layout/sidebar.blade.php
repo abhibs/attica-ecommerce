@@ -29,7 +29,7 @@
                     </li>
                     <li> <a href="{{ route('gold-index') }}"><i class="bx bx-right-arrow-alt"></i>View Golds</a>
                     </li>
-    
+
                 </ul>
             </a>
         </li> --}}
@@ -99,7 +99,7 @@
             <ul>
                 <li> <a href="{{ route('product-create') }}"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
                 </li>
-                <li> <a href="icons-boxicons.html"><i class="bx bx-right-arrow-alt"></i>Boxicons</a>
+                <li> <a href="{{ route('product-index') }}"><i class="bx bx-right-arrow-alt"></i>View Products</a>
                 </li>
 
             </ul>

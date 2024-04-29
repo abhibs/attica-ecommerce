@@ -59,7 +59,6 @@ class ProductController extends Controller
 
         ]);
 
-        /// Multiple Image Upload From her //////
 
         $images = $request->file('multi_img');
         foreach ($images as $img) {
@@ -77,17 +76,22 @@ class ProductController extends Controller
             ]);
         } // end foreach
 
-        /// End Multiple Image Upload From her //////
 
         $notification = array(
             'message' => 'Product Inserted Successfully',
             'alert-type' => 'success'
         );
 
-        // return redirect()->route('all.product')->with($notification);
-        return back()->with($notification);
+        return redirect()->route('product-index')->with($notification);
 
 
 
-    } // End Method
+    }
+
+    public function index()
+    {
+        $datas = Product::latest()->get();
+        return view('admin.product.index', compact('datas'));
+    }
+
 }

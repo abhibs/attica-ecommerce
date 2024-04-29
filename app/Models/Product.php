@@ -26,5 +26,10 @@ class Product extends Model
         return $this->belongsTo(Quality::class, 'quality_id', 'id');
     }
 
-    
+    public function gold()
+    {
+        return $this->belongsTo(Gold::class, 'gold_id', 'id');
+    }
+
+
 }

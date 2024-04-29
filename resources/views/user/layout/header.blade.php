@@ -1,4 +1,3 @@
-
 <!-- Header  -->
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
@@ -54,7 +53,7 @@
                                     </ul>
                                 </li> --}}
 
-                            <li>Need help? Call Us: <strong class="text-brand"> + 1800 900</strong></li>
+                            <li>Need help? Call Us: <strong class="text-brand"> +91-8880300300</strong></li>
 
                         </ul>
                     </div>
@@ -336,7 +335,7 @@
 
                 <div class="hotline d-none d-lg-flex">
                     <img src="{{ asset('user/assets/imgs/theme/icons/icon-headphone.svg') }}" alt="hotline" />
-                    <p>1900 - 888<span>24/7 Support Center</span></p>
+                    <p>+91-8880300300<span>24/7 Support Center</span></p>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">

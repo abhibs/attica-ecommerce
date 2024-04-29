@@ -68,7 +68,7 @@
         </div>
     </section>
     <!--End category slider-->
-    <section class="banners mb-25">
+    {{-- <section class="banners mb-25">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -109,7 +109,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--End banners-->
 
 
@@ -121,19 +121,19 @@
     <section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                <h3> Products </h3>
+                <h3> All Products </h3>
                 <ul class="nav nav-tabs links" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
+                    {{-- <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
                             type="button" role="tab" aria-controls="tab-one" aria-selected="true">All</button>
-                    </li>
-                    @foreach ($categories as $category)
+                    </li> --}}
+                    {{-- @foreach ($categories as $category)
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
                                 type="button" role="tab" aria-controls="tab-two"
                                 aria-selected="false">{{ $category->name }}</button>
                         </li>
-                    @endforeach
+                    @endforeach --}}
                 </ul>
             </div>
             <!--End nav-tabs-->
@@ -152,8 +152,8 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Add To Wishlist" class="action-btn"
-                                                href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
+                                                    class="fi-rs-heart"></i></a>
                                             {{-- <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
                                                     class="fi-rs-shuffle"></i></a> --}}
                                             <a aria-label="Quick view" id="{{ $item->id }}"
@@ -202,8 +202,7 @@
                 </div>
                 <!--En tab one-->
                 @foreach ($categories as $category)
-                    <div class="tab-pane fade" id="category{{ $category->id }}" role="tabpanel"
-                        aria-labelledby="tab-two">
+                    <div class="tab-pane fade" id="category{{ $category->id }}" role="tabpanel" aria-labelledby="tab-two">
                         @php
                             $catwiseProduct = App\Models\Product::where('category_id', $category->id)
                                 ->orderBy('id', 'DESC')
