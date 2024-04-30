@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\WeightController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QualityController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PincodeController;
+
 
 
 
@@ -61,6 +63,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
         Route::post('/product/store', [ProductController::class, 'store'])->name('product-store');
         Route::get('/product/index', [ProductController::class, 'index'])->name('product-index');
+
+
+        Route::get('/pincode/create', [PincodeController::class, 'create'])->name('pincode-create');
+        Route::post('/pincode/store', [PincodeController::class, 'store'])->name('pincode-store');
+        Route::get('/pincode', [PincodeController::class, 'index'])->name('pincode-index');
+        Route::get('/pincode/edit/{id}', [PincodeController::class, 'edit'])->name('pincode-edit');
+        Route::post('/pincode/update', [PincodeController::class, 'update'])->name('pincode-update');
+        Route::get('/pincode/delete/{id}', [PincodeController::class, 'delete'])->name('pincode-delete');
 
     });
 });

@@ -92,6 +92,20 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-repeat"></i>
+                </div>
+                <div class="menu-title">Pincode</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('pincode-create') }}"><i class="bx bx-right-arrow-alt"></i>Add Pincode</a>
+                </li>
+                <li> <a href="{{ route('pincode-index') }}"><i class="bx bx-right-arrow-alt"></i>View Pincode</a>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
                 </div>
                 <div class="menu-title">Product</div>

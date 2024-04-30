@@ -89,32 +89,13 @@
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
-                            <div class="search-location">
-                                <form action="#">
-                                    <select class="select-active">
-                                        <option>Your Location</option>
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>Arizona</option>
-                                        <option>Delaware</option>
-                                        <option>Florida</option>
-                                        <option>Georgia</option>
-                                        <option>Hawaii</option>
-                                        <option>Indiana</option>
-                                        <option>Maryland</option>
-                                        <option>Nevada</option>
-                                        <option>New Jersey</option>
-                                        <option>New Mexico</option>
-                                        <option>New York</option>
-                                    </select>
-                                </form>
-                            </div>
+
 
                             <div class="header-action-icon-2">
                                 <a href="{{ route('user-wishlist') }}">
                                     <img class="svgInject" alt="Nest"
                                         src="{{ asset('user/assets/imgs/theme/icons/icon-heart.svg') }}" />
-                                    <span class="pro-count blue">6</span>
+                                    <span class="pro-count blue" id="wishQty"> 0</span>
                                 </a>
                                 <a href="{{ route('user-wishlist') }}"><span class="lable">Wishlist</span></a>
                             </div>
@@ -141,7 +122,7 @@
                                 </div>
                             </div>
                             <div class="header-action-icon-2">
-                                <a href="page-account.html">
+                                <a href="{{ route('user-index') }}">
                                     <img class="svgInject" alt="Nest"
                                         src="{{ asset('user/assets/imgs/theme/icons/icon-user.svg') }}" />
                                 </a>
@@ -172,7 +153,7 @@
                                         </ul>
                                     </div>
                                 @else
-                                    <a href="{{ route('user-login') }}"><span class="lable ml-0">Login</span></a>
+                                    <a href="{{ route('login') }}"><span class="lable ml-0">Login</span></a>
 
                                     <span class="lable" style="margin-left: 2px; margin-right: 2px;"> | </span>
 
@@ -291,7 +272,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="">About</a>
+                                    <a href="{{ route('user-about') }}">About</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('shop') }}">Shop</a>
@@ -300,7 +281,7 @@
                                     <a href="">Blog</a>
                                 </li>
                                 <li>
-                                    <a href="">Contact</a>
+                                    <a href="{{ route('user-contact') }}">Contact</a>
                                 </li>
                             </ul>
                         </nav>
@@ -396,7 +377,7 @@
 
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="">About</a>
+                            <a href="{{ route('user-about') }}">About</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="{{ route('shop') }}">Shop</a>
@@ -405,7 +386,7 @@
                             <a href="">Blog</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="">Contact</a>
+                            <a href="{{ route('user-contact') }}">Contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -418,7 +399,7 @@
                     </div>
                 @else
                     <div class="single-mobile-header-info">
-                        <a href="{{ route('user-login') }}"><i class="fi-rs-user"></i>User Login </a>
+                        <a href="{{ route('login') }}"><i class="fi-rs-user"></i>User Login </a>
                     </div>
                 @endauth
 

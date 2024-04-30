@@ -3,19 +3,19 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Quality</div>
+            <div class="breadcrumb-title pe-3">Pincode</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Quality</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Pincode</li>
                     </ol>
                 </nav>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('quality-create') }}" class="btn btn-primary">Add Quality</a>
+                    <a href="{{ route('pincode-create') }}" class="btn btn-primary">Add Pincode</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                         <thead>
                             <tr>
                                 <th>Sl</th>
-                                <th>Quality Name</th>
+                                <th>Pincode</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,12 +37,12 @@
                             @foreach ($datas as $key => $item)
                                 <tr>
                                     <td> {{ $key + 1 }} </td>
-                                    <td>{{ $item->name }}
+                                    <td>{{ $item->pincode }}
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('quality-edit', $item->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('quality-delete', $item->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('pincode-edit', $item->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('pincode-delete', $item->id) }}" class="btn btn-danger"
                                             id="delete">Delete</a>
 
                                     </td>

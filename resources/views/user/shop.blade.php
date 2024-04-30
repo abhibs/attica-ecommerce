@@ -31,13 +31,13 @@
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="shop-product-right.html">
+                                        <a href="">
                                             <img class="default-img" src="{{ asset($item->image) }}" alt="" />
                                             <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
+                                        <a aria-label="Add To Wishlist" class="action-btn" href=""><i
                                                 class="fi-rs-heart"></i></a>
                                         {{-- <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
                                                     class="fi-rs-shuffle"></i></a> --}}
@@ -67,8 +67,7 @@
                                     </div> --}}
                                     <div class="product-card-bottom">
                                         <div class="product-price">
-                                            <span>Rs. {{ $item->total }}</span>
-                                            <span class="old-price">Rs. {{ $item->price }}</span>
+                                            <span>Rs. {{ $item->price }}</span>
                                         </div>
                                         <div class="add-cart">
                                             <a class="add"

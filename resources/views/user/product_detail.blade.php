@@ -60,11 +60,8 @@
                                 </div>
                                 <div class="clearfix product-price-cover">
                                     <div class="product-price primary-color float-left">
-                                        <span class="current-price text-brand">{{ $product->total }}</span>
-                                        <span>
-                                            <span class="save-price font-md color3 ml-15">3% GST</span>
-                                            <span class="old-price font-md ml-15">{{ $product->price }}</span>
-                                        </span>
+                                        <span class="current-price text-brand">Rs. {{ $product->price }}</span>
+
                                     </div>
                                 </div>
                                 <div class="short-desc mb-30">
@@ -156,8 +153,7 @@
                                                 </div> --}}
                                                 <div>Rating({{ $item->rating }})</div>
                                                 <div class="product-price">
-                                                    <span>Rs. {{ $item->total }} </span>
-                                                    <span class="old-price">Rs. {{ $item->price }} </span>
+                                                    <span>Rs. {{ $item->price }} </span>
                                                 </div>
                                             </div>
                                         </div>

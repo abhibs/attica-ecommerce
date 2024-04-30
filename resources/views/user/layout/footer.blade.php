@@ -28,10 +28,10 @@
                     data-wow-delay=".2s">
                     <h4 class="widget-title">Account</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0">
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">View Cart</a></li>
-                        <li><a href="#">My Wishlist</a></li>
-                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="{{ route('user-register') }}">Sign In</a></li>
+                        <li><a href="{{ route('user-cart') }}">View Cart</a></li>
+                        <li><a href="{{ route('user-wishlist') }}">My Wishlist</a></li>
+                        <li><a href="">Track My Order</a></li>
 
                     </ul>
                 </div>
@@ -39,10 +39,11 @@
                     data-wow-delay=".1s">
                     <h4 class=" widget-title">Company</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('user-about') }}">About Us</a></li>
+                        <li><a href="{{ route('user-faq') }}">FAQ</a></li>
+                        <li><a href="{{ route('user-privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('user-terms') }}">Terms &amp; Conditions</a></li>
+                        <li><a href="{{ route('user-contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -89,7 +90,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="text-center">
-                <img src="{{ asset('user/assets/imgs/theme/loading.gif') }}" alt="" />
+                <img src="{{ asset('user/assets/imgs/theme/logo1.jpg') }}" alt="" />
             </div>
         </div>
     </div>
