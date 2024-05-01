@@ -32,11 +32,12 @@ class ShopController extends Controller
             $ratesIds = Gold::select('id')->whereIn('rate', $rates)->pluck('id')->toArray();
             $products = Product::whereIn('gold_id', $ratesIds)->get();
         }
-        if (!empty($_GET['quality'])) {
-            $qualities = explode(',', $_GET['quality']);
-            $qualitiesIds = Quality::select('id')->whereIn('name', $qualities)->pluck('id')->toArray();
-            $products = Product::whereIn('quality_id', $qualitiesIds)->get();
-        } else {
+        // if (!empty($_GET['quality'])) {
+        //     $qualities = explode(',', $_GET['quality']);
+        //     $qualitiesIds = Quality::select('id')->whereIn('name', $qualities)->pluck('id')->toArray();
+        //     $products = Product::whereIn('quality_id', $qualitiesIds)->get();
+        // }
+        else {
             $products = Product::where('status', 1)->orderBy('id', 'DESC')->get();
         }
 
@@ -91,17 +92,17 @@ class ShopController extends Controller
             }
         }
 
-        $qualityUrl = "";
-        if (!empty($data['quality'])) {
-            foreach ($data['quality'] as $quality) {
-                if (empty($qualityUrl)) {
-                    $qualityUrl .= '&quality=' . $quality;
-                } else {
-                    $qualityUrl .= ',' . $quality;
-                }
-            }
-        }
-        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl . $qualityUrl);
+        // $qualityUrl = "";
+        // if (!empty($data['quality'])) {
+        //     foreach ($data['quality'] as $quality) {
+        //         if (empty($qualityUrl)) {
+        //             $qualityUrl .= '&quality=' . $quality;
+        //         } else {
+        //             $qualityUrl .= ',' . $quality;
+        //         }
+        //     }
+        // }
+        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl);
 
     }
 }

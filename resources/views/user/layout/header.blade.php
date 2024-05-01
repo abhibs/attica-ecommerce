@@ -65,7 +65,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}"
+                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo3.jpeg') }}"
                             alt="logo" /></a>
                 </div>
                 <div class="header-right">
@@ -183,7 +183,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}"
+                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo3.jpeg') }}"
                             alt="logo" /></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">

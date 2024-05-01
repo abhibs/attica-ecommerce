@@ -90,7 +90,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="text-center">
-                <img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}" alt="" />
+                <img src="{{ asset('user/assets/imgs/theme/logo3.jpeg') }}" alt="" />
             </div>
         </div>
     </div>
