@@ -69,6 +69,53 @@
     </section>
 
 
+    <section>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="text-warning">Akshaya Tritiya</h1>
+                    <h5><strong>"Embrace the Eternal Gold of Akshaya Tritiya, where blessings flow
+                            endlessly
+                            and fortune never diminishes"</strong></h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ asset('user/assets/imgs/gold/aksht.jpeg') }}" alt="main-img" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="{{ asset('user/assets/imgs/gold/banner.jpeg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 p-1">
+                            <img src="{{ asset('user/assets/imgs/gold/abc.jpeg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 p-1">
+                            <img src="{{ asset('user/assets/imgs/gold/abc.jpeg') }}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                <p class="text-center"><strong>
+                        Celebrate Akshaya Tritiya, a day revered for its boundless blessings and the enduring promise of
+                        eternal prosperity symbolized by the timeless allure of gold.
+                        Embrace this auspicious occasion as an opportunity to ignite new beginnings and invite abundance
+                        into your life,
+                        ensuring that your journey is adorned with the gleam of everlasting fortune.
+                    </strong></p>
+            </div>
+        </div>
+    </div>
+
+
 
 
 
@@ -101,7 +148,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="product-action-1">
-                                                    <a aria-label="Add To Wishlist" class="action-btn" href=""><i
+                                                    <a aria-label="Add To Wishlist" class="action-btn"
+                                                        id="{{ $item->id }}" onclick="addToWishList(this.id)"><i
                                                             class="fi-rs-heart"></i></a>
                                                     {{-- <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
                                                     class="fi-rs-shuffle"></i></a> --}}
@@ -170,7 +218,8 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
-                                                <img class="default-img" src="{{ asset($item->image) }}" alt="" />
+                                                <img class="default-img" src="{{ asset($item->image) }}"
+                                                    alt="" />
                                                 <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
                                             </a>
                                         </div>

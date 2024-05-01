@@ -7,7 +7,7 @@
                         data-wow-delay="0">
                         <div class="logo mb-30">
                             <a href="index.html" style="" class="mb-15"><img
-                                    src="{{ asset('user/assets/imgs/theme/logo1.jpg') }}" alt="logo" /></a>
+                                    src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}" alt="logo" /></a>
                             <!-- <p class="font-lg text-heading">Awesome grocery store website template</p> -->
                         </div>
                         <ul class="contact-infor">
@@ -31,7 +31,7 @@
                         <li><a href="{{ route('user-register') }}">Sign In</a></li>
                         <li><a href="{{ route('user-cart') }}">View Cart</a></li>
                         <li><a href="{{ route('user-wishlist') }}">My Wishlist</a></li>
-                        <li><a href="">Track My Order</a></li>
+                        <li><a href="{{ route('order-track') }}">Track My Order</a></li>
 
                     </ul>
                 </div>
@@ -90,7 +90,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="text-center">
-                <img src="{{ asset('user/assets/imgs/theme/logo1.jpg') }}" alt="" />
+                <img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}" alt="" />
             </div>
         </div>
     </div>

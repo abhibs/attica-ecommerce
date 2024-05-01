@@ -38,6 +38,8 @@
                                 <th> Price </th>
                                 <th> GST </th>
                                 <th> Total </th>
+                                <th> Rating </th>
+
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -55,6 +57,7 @@
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->gst }}</td>
                                     <td>{{ $item->total }}</td>
+                                    <td>{{ $item->rating }}</td>
 
                                     <td>
                                         <a href="" class="btn btn-info">Edit</a>
@@ -78,6 +81,8 @@
                                 <th> Price </th>
                                 <th> GST </th>
                                 <th> Total </th>
+                                <th> Rating </th>
+
                                 <th>Action</th>
                             </tr>
                         </tfoot>

@@ -1,5 +1,7 @@
 @extends('user.layout.app')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
@@ -63,7 +65,8 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="pincode" placeholder="Pincode">
+                                <input required="" type="text" name="alt_phone"
+                                    placeholder="Alternative Phone Number">
                             </div>
                         </div>
 
@@ -85,12 +88,49 @@
                         </div>
 
 
-
-
-
-                        <div class="form-group mb-30">
-                            <textarea rows="5" placeholder="Additional information"></textarea>
+                        <div class="row shipping_calculator">
+                            <div class="form-group col-lg-6">
+                                <input required="" type="text" name="pincode" placeholder="Enter Pincode">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <input required="" type="text" name="address"
+                                    placeholder="House Number, Builiding Name">
+                            </div>
                         </div>
+
+                        <div class="row shipping_calculator">
+                            <div class="form-group col-lg-6">
+                                <input required="" type="text" name="pincode" placeholder="Road Name, Area, Colony ">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <input required="" type="text" name="address"
+                                    placeholder="Near Famous Shop/Mall/Landmark">
+                            </div>
+                        </div>
+
+                        <h6 class="mb-3">Type of Address</h6>
+                        <div class="form-group col-lg-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="type_address" value="Home">
+                                <p class="border p-3" style="border-radius: 100px;"><i class="fas fa-home mr-5"></i>Home</p>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="type_address" value="Office">
+                                <p class="border p-3" style="border-radius: 100px;"><i
+                                        class="fas fa-building mr-5"></i>Office
+                                </p>
+
+                            </label>
+                        </div>
+
+
+
+
+
+
+                        {{-- <div class="form-group mb-30">
+                            <textarea rows="5" placeholder="Additional information"></textarea>
+                        </div> --}}
 
 
 

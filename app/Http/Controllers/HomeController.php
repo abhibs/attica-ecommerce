@@ -55,6 +55,11 @@ class HomeController extends Controller
         return view('user.about');
     }
 
+    public function orderTracking()
+    {
+        return view('user.ordertraking');
+    }
+
 
 
 

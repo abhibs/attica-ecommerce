@@ -12,7 +12,7 @@
 
                             <li><a href="{{ route('user-cart') }}">My Cart</a></li>
                             <li><a href="{{ route('user-checkout') }}">Checkout</a></li>
-                            <li><a href="">Order Tracking</a></li>
+                            <li><a href="{{ route('order-track') }}">Order Tracking</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo1.jpg') }}"
+                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}"
                             alt="logo" /></a>
                 </div>
                 <div class="header-right">
@@ -136,7 +136,8 @@
                                                     Account</a>
                                             </li>
                                             <li>
-                                                <a href=""><i class="fi fi-rs-location-alt mr-10"></i>Order
+                                                <a href="{{ route('order-track') }}"><i
+                                                        class="fi fi-rs-location-alt mr-10"></i>Order
                                                     Tracking</a>
                                             </li>
 
@@ -182,7 +183,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo1.jpg') }}"
+                    <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}"
                             alt="logo" /></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
@@ -277,9 +278,9 @@
                                 <li>
                                     <a href="{{ route('shop') }}">Shop</a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="">Blog</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{ route('user-contact') }}">Contact</a>
                                 </li>
@@ -351,7 +352,7 @@
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo1.jpg') }}"
+                <a href="{{ route('user-index') }}"><img src="{{ asset('user/assets/imgs/theme/logo2.jpeg') }}"
                         alt="logo" /></a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
@@ -382,9 +383,9 @@
                         <li class="menu-item-has-children">
                             <a href="{{ route('shop') }}">Shop</a>
                         </li>
-                        <li class="menu-item-has-children">
+                        {{-- <li class="menu-item-has-children">
                             <a href="">Blog</a>
-                        </li>
+                        </li> --}}
                         <li class="menu-item-has-children">
                             <a href="{{ route('user-contact') }}">Contact</a>
                         </li>
