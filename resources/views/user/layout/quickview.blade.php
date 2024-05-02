@@ -28,12 +28,12 @@
                             </div> --}}
                             <div class="clearfix product-price-cover">
                                 <div class="product-price primary-color float-left">
-                                        <span class="current-price text-brand">Rs.</span>
-                                        <span class="current-price text-brand" id="ptotal"></span>
-                                    <span>
+                                    <span class="current-price text-brand">Rs.</span>
+                                    <span class="current-price text-brand" id="pprice"></span>
+                                    {{-- <span>
                                         <span class="old-price font-md ml-15">Rs.</span>
                                         <span class="old-price font-md ml-15" id="pprice"></span>
-                                    </span>
+                                    </span> --}}
                                 </div>
                             </div>
                             <div class="detail-extralink mb-30">

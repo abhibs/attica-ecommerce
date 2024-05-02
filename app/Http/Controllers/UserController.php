@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -57,7 +58,7 @@ class UserController extends Controller
                 'message' => 'User Login Successful',
                 'alert-type' => 'success'
             );
-            return redirect()->route('user-index')->with($notification1);
+            return redirect()->route('user-dashboard')->with($notification1);
         } else {
             $notification2 = array(
                 'message' => 'Invalid Credentials',
@@ -69,7 +70,88 @@ class UserController extends Controller
 
     public function userDashboard()
     {
-        return view('user.userdashboard');
+        $id = Auth::user()->id;
+        $userData = User::find($id);
+        return view('user.userdashboard', compact('userData'));
+    }
+
+    public function profileUpdate(Request $request)
+    {
+
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->address = $request->address;
+
+
+        // if ($request->file('image')) {
+        //     $file = $request->file('image');
+        //     // @unlink(public_path('storage/user/' . $data->image));
+        //     $filename = date('YmdHi') . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/user_images'), $filename);
+        //     $data['photo'] = $filename;
+        // }
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            // @unlink(public_path('storage/user/' . $data->image));
+            $filename = 'user' . time() . '.' . $image->getClientOriginalExtension();
+
+            // installing image intervention
+            // composer require intervention/image
+
+            // config/app.php
+            // Intervention\Image\ImageServiceProvider::class,
+            // 'Image' => Intervention\Image\Facades\Image::class,
+
+            // php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+
+            Image::make($image)->resize(256, 256)->save('storage/user/' . $filename);
+            $filePath = 'storage/user/' . $filename;
+            $data->image = $filename;
+        }
+
+        $data->save();
+
+        $notification = array(
+            'message' => 'User Profile Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }
+
+    public function userChangePassword()
+    {
+        return view('user.change_password');
+
+    }
+
+    public function userUpdatePassword(Request $request)
+    {
+        // Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        // Match The Old Password
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+            return back()->with("error", "Old Password Doesn't Match!!");
+        }
+
+        // Update The new password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password),
+            'password_hint' => $request->new_password
+        ]);
+        return back()->with("status", " Password Changed Successfully");
+
+
     }
 
     public function userLogout()

@@ -47,6 +47,10 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::group(['middleware' => 'auth:web'], function () {
         Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('user-dashboard');
+        Route::post('/profile', [UserController::class, 'profileUpdate'])->name('user-profile-update');
+        Route::get('/change/password', [UserController::class, 'userChangePassword'])->name('user-change-password');
+        Route::post('/update/change/password', [UserController::class, 'userUpdatePassword'])->name('user-update-change-password');
+
         Route::get('/logout', [UserController::class, 'userLogout'])->name('user-logout');
         Route::get('/get-wishlist-product', [WishlistController::class, 'GetWishlistProduct']);
         Route::get('/wishlist', [WishlistController::class, 'AllWishlist'])->name('user-wishlist');

@@ -70,8 +70,6 @@ class AdminController extends Controller
         $admin->phone = $request->phone;
         $admin->address = $request->address;
 
-
-
         if ($request->file('image')) {
             $image = $request->file('image');
             @unlink(public_path('storage/admin/' . $admin->image));
