@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QualityController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PincodeController;
+use App\Http\Controllers\Admin\UserController;
+
 
 
 
@@ -71,6 +73,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/pincode/edit/{id}', [PincodeController::class, 'edit'])->name('pincode-edit');
         Route::post('/pincode/update', [PincodeController::class, 'update'])->name('pincode-update');
         Route::get('/pincode/delete/{id}', [PincodeController::class, 'delete'])->name('pincode-delete');
+
+
+        Route::get('/user/index', [UserController::class, 'index'])->name('user-list');
+        Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user-delete');
+
 
     });
 });

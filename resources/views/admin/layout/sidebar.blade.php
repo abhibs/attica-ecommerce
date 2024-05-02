@@ -123,13 +123,12 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
                 </div>
-                <div class="menu-title">Forms</div>
+                <div class="menu-title">Users List</div>
             </a>
             <ul>
-                <li> <a href="form-elements.html"><i class="bx bx-right-arrow-alt"></i>Form Elements</a>
+                <li> <a href="{{ route('user-list') }}"><i class="bx bx-right-arrow-alt"></i>All Users</a>
                 </li>
-                <li> <a href="form-input-group.html"><i class="bx bx-right-arrow-alt"></i>Input Groups</a>
-                </li>
+
 
             </ul>
         </li>
