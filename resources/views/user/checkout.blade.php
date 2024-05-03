@@ -25,7 +25,19 @@
                 <div class="row">
                     <h4 class="mb-30">Billing Details</h4>
                     <form method="post">
+                        <h6 class="mb-3">Type of Delivery</h6>
+                        <div class="form-group col-lg-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="type_delivery" value="Branch_Visit">
+                                <p class="border p-3" style="border-radius: 100px;">Branch Visit</p>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="type_delivery" value="Delivery Boy">
+                                <p class="border p-3" style="border-radius: 100px;">Delivery Boy
+                                </p>
 
+                            </label>
+                        </div>
 
                         <div class="row">
                             <div class="form-group col-lg-6">
@@ -108,11 +120,13 @@
                             </div>
                         </div>
 
+
                         <h6 class="mb-3">Type of Address</h6>
                         <div class="form-group col-lg-6">
                             <label class="radio-inline">
                                 <input type="radio" name="type_address" value="Home">
-                                <p class="border p-3" style="border-radius: 100px;"><i class="fas fa-home mr-5"></i>Home</p>
+                                <p class="border p-3" style="border-radius: 100px;"><i class="fas fa-home mr-5"></i>Home
+                                </p>
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="type_address" value="Office">
@@ -122,6 +136,8 @@
 
                             </label>
                         </div>
+
+
 
 
 

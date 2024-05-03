@@ -42,6 +42,9 @@
 
                     <div class="col-lg-5">
                         <div class="p-40">
+
+
+                            
                             <h4 class="mb-10">Enter Pincode To Check Delivery</h4>
                             {{-- <p class="mb-30"><span class="font-lg text-muted">Using A Promo Code?</p> --}}
                             <form action="#">

@@ -31,7 +31,7 @@
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="">
+                                        <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                             <img class="default-img" src="{{ asset($item->image) }}" alt="" />
                                             <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
                                         </a>
@@ -191,7 +191,7 @@
 
 
 
-                                
+
                             </div>
                         </div>
                         {{-- <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>

@@ -141,10 +141,13 @@
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
-                                                        <img class="default-img" src="{{ asset($item->image) }}"
-                                                            alt="" />
-                                                        <img class="hover-img" src="{{ asset($item->image) }}"
-                                                            alt="" />
+                                                        <a href="{{ route('product-detail', [$item->id, $item->slug]) }}"><img
+                                                                class="default-img" src="{{ asset($item->image) }}"
+                                                                alt="" /></a>
+
+                                                        <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
+                                                            <img class="hover-img" src="{{ asset($item->image) }}"
+                                                                alt="" /></a>
                                                     </a>
                                                 </div>
                                                 <div class="product-action-1">
@@ -203,7 +206,7 @@
     <section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                <h3>Gold Coin Category Product</h3>
+                <h3>Gold Coin Category</h3>
 
             </div>
             <!--End nav-tabs-->
@@ -292,7 +295,7 @@
     <section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                <h3>Gold Bar Category Product</h3>
+                <h3>Gold Bar Category </h3>
 
             </div>
             <!--End nav-tabs-->

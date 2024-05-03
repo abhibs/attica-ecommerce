@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\QualityController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PincodeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\StateController;
+
 
 
 
@@ -77,6 +79,14 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/user/index', [UserController::class, 'index'])->name('user-list');
         Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user-delete');
+
+        Route::get('/state/create', [StateController::class, 'create'])->name('state-create');
+        Route::post('/state/store', [StateController::class, 'store'])->name('state-store');
+        Route::get('/state', [StateController::class, 'index'])->name('state-index');
+        Route::get('/state/edit/{id}', [StateController::class, 'edit'])->name('state-edit');
+        Route::post('/state/update', [StateController::class, 'update'])->name('state-update');
+        Route::get('/state/delete/{id}', [StateController::class, 'delete'])->name('state-delete');
+
 
 
     });

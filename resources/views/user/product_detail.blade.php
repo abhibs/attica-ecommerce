@@ -36,7 +36,11 @@
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="detail-info pr-30 pl-30">
-                                <span class="stock-status out-stock"> {{ $product->category->name }} </span>
+                                @if ($product->stock === 0)
+                                    <span class="stock-status out-stock"> Out Of Stock </span>
+                                @else
+                                    <span class="stock-status" style="background-color: gold"> Stock is available </span>
+                                @endif
                                 <h2 class="title-detail" id="dpname">{{ $product->name }}</h2>
                                 <div class="product-detail-rating">
                                     <div class="product-rate-cover text-end">
@@ -64,6 +68,9 @@
 
                                     </div>
                                 </div>
+
+                                <span> {{ $product->category->name }} </span>
+
                                 <div class="short-desc mb-30">
                                     <p class="font-lg">{{ $product->content }}</p>
                                 </div>
@@ -78,12 +85,22 @@
                                     <div class="product-extra-link2">
                                         <input type="hidden" id="dproduct_id" value="{{ $product->id }}">
 
-                                        <button type="submit" class="button button-add-to-cart"
-                                            onclick="addToCartDetails()"><i class="fi-rs-shopping-cart"></i>Add to
-                                            cart</button>
 
-                                        {{-- <a aria-label="Add To Wishlist" class="action-btn hover-up" href=""><i
-                                                class="fi-rs-heart"></i></a> --}}
+                                        @if ($product->stock === 0)
+                                            <button type="submit" class="button button-add-to-cart"
+                                                id="{{ $product->id }}" onclick="addToWishList(this.id)"><i
+                                                    class="fi-rs-shopping-cart"></i>Add To Wishlist</button>
+                                        @else
+                                            <button type="submit" class="button button-add-to-cart"
+                                                onclick="addToCartDetails()"><i class="fi-rs-shopping-cart"></i>Add to
+                                                cart</button>
+                                            <button type="submit" class="button button-add-to-cart"
+                                                id="{{ $product->id }}" onclick="addToWishList(this.id)"><i
+                                                    class="fi-rs-heart"></i>Add To Wishlist</button>
+                                        @endif
+
+
+
 
                                     </div>
                                 </div>
