@@ -149,14 +149,14 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-lock"></i>
                 </div>
-                <div class="menu-title">Authentication</div>
+                <div class="menu-title">District</div>
             </a>
             <ul>
-                <li> <a href="authentication-signin.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Sign
-                        In</a>
+                <li> <a href="{{ route('district-create') }}" target="_blank"><i class="bx bx-right-arrow-alt"></i>Add
+                        District</a>
                 </li>
-                <li> <a href="authentication-signup.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Sign
-                        Up</a>
+                <li> <a href="{{ route('district-index') }}" target="_blank"><i class="bx bx-right-arrow-alt"></i>All
+                        Districts</a>
                 </li>
 
             </ul>
@@ -167,29 +167,29 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-line-chart"></i>
                 </div>
-                <div class="menu-title">Charts</div>
+                <div class="menu-title">City</div>
             </a>
             <ul>
-                <li> <a href="charts-apex-chart.html"><i class="bx bx-right-arrow-alt"></i>Apex</a>
+                <li> <a href="{{ route('city-create') }}"><i class="bx bx-right-arrow-alt"></i>Add City</a>
                 </li>
-                <li> <a href="charts-chartjs.html"><i class="bx bx-right-arrow-alt"></i>Chartjs</a>
+                <li> <a href="{{ route('city-index') }}"><i class="bx bx-right-arrow-alt"></i>All Cities</a>
                 </li>
 
             </ul>
         </li>
-        <li>
+        {{-- <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-map-alt"></i>
                 </div>
-                <div class="menu-title">Maps</div>
+                <div class="menu-title">Branch</div>
             </a>
             <ul>
-                <li> <a href="map-google-maps.html"><i class="bx bx-right-arrow-alt"></i>Google Maps</a>
+                <li> <a href="{{ route('branch-create') }}"><i class="bx bx-right-arrow-alt"></i>Add Branch</a>
                 </li>
-                <li> <a href="map-vector-maps.html"><i class="bx bx-right-arrow-alt"></i>Vector Maps</a>
+                <li> <a href="{{ route('branch-index') }}"><i class="bx bx-right-arrow-alt"></i>All Branches</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
     </ul>
     <!--end navigation-->

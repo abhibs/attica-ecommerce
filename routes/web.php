@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CheckoutController;
+
 
 
 
@@ -35,6 +37,7 @@ Route::get('/minicart/product/remove/{rowId}', [CartController::class, 'RemoveMi
 Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails']);
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
 Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/checkout/store', [CheckoutController::class, 'checkoutStore'])->name('user-checkout-store');
 
 
 Route::group(['prefix' => 'user'], function () {
@@ -69,6 +72,7 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('/check/pincode', [CartController::class, 'checkPincode']);
 
         Route::get('/checkout', [CartController::class, 'checkout'])->name('user-checkout');
+
 
 
     });

@@ -24,8 +24,9 @@
 
                 <div class="row">
                     <h4 class="mb-30">Billing Details</h4>
-                    <form method="post">
-                        <h6 class="mb-3">Type of Delivery</h6>
+                    <form method="post" action="{{ route('user-checkout-store') }}">
+                        @csrf
+                        {{-- <h6 class="mb-3">Type of Delivery</h6>
                         <div class="form-group col-lg-6">
                             <label class="radio-inline">
                                 <input type="radio" name="type_delivery" value="Branch_Visit">
@@ -37,7 +38,7 @@
                                 </p>
 
                             </label>
-                        </div>
+                        </div> --}}
 
                         <div class="row">
                             <div class="form-group col-lg-6">
@@ -53,9 +54,11 @@
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
                                 <div class="custom_select">
-                                    <select class="form-control select-active">
+                                    <select name="state_id" class="form-control select-active">
                                         <option value="">Select State</option>
-                                        <option value="">Karnataka</option>
+                                        @foreach ($states as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -68,9 +71,12 @@
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
                                 <div class="custom_select">
-                                    <select class="form-control select-active">
+                                    <select name="district_id" class="form-control select-active">
                                         <option value="">Select District</option>
-                                        <option value="AX">Bangalore</option>
+
+                                        @foreach ($districts as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
 
 
                                     </select>
@@ -86,9 +92,11 @@
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
                                 <div class="custom_select">
-                                    <select class="form-control select-active">
+                                    <select name="city_id" class="form-control select-active">
                                         <option value="">Select City</option>
-                                        <option value="AX">Kormangala</option>
+                                        @foreach ($cities as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
 
 
                                     </select>
@@ -105,17 +113,18 @@
                                 <input required="" type="text" name="pincode" placeholder="Enter Pincode">
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="address"
+                                <input required="" type="text" name="house_no"
                                     placeholder="House Number, Builiding Name">
                             </div>
                         </div>
 
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="pincode" placeholder="Road Name, Area, Colony ">
+                                <input required="" type="text" name="road_name"
+                                    placeholder="Road Name, Area, Colony ">
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="address"
+                                <input required="" type="text" name="landmark"
                                     placeholder="Near Famous Shop/Mall/Landmark">
                             </div>
                         </div>
@@ -150,7 +159,6 @@
 
 
 
-                    </form>
                 </div>
             </div>
 
@@ -214,33 +222,22 @@
                 <div class="payment ml-30">
                     <h4 class="mb-30">Payment</h4>
                     <div class="payment_option">
+
                         <div class="custome-radio">
+
                             <input class="form-check-input" required="" type="radio" name="payment_option"
-                                id="exampleRadios3" checked="">
-                            <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse"
-                                data-target="#bankTranfer" aria-controls="bankTranfer">Direct Bank Transfer</label>
-                        </div>
-                        <div class="custome-radio">
-                            <input class="form-check-input" required="" type="radio" name="payment_option"
-                                id="exampleRadios4" checked="">
+                                value="cod" id="exampleRadios4" checked="">
+
                             <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse"
                                 data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>
                         </div>
-                        <div class="custome-radio">
-                            <input class="form-check-input" required="" type="radio" name="payment_option"
-                                id="exampleRadios5" checked="">
-                            <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse"
-                                data-target="#paypal" aria-controls="paypal">Online Getway</label>
-                        </div>
+
                     </div>
-                    <div class="payment-logo d-flex">
-                        <img class="mr-15" src="assets/imgs/theme/icons/payment-paypal.svg" alt="">
-                        <img class="mr-15" src="assets/imgs/theme/icons/payment-visa.svg" alt="">
-                        <img class="mr-15" src="assets/imgs/theme/icons/payment-master.svg" alt="">
-                        <img src="assets/imgs/theme/icons/payment-zapper.svg" alt="">
-                    </div>
-                    <a href="#" class="btn btn-fill-out btn-block mt-30">Place an Order<i
-                            class="fi-rs-sign-out ml-15"></i></a>
+
+                    <button type="submit" class="btn btn-fill-out btn-block mt-30">Place an Order<i
+                            class="fi-rs-sign-out ml-15"></i></button>
+                    </form>
+
                 </div>
             </div>
         </div>

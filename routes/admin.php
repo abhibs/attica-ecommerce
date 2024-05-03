@@ -10,6 +10,11 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PincodeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StateController;
+use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\BranchController;
+
+
 
 
 
@@ -88,6 +93,28 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/state/delete/{id}', [StateController::class, 'delete'])->name('state-delete');
 
 
+        Route::get('/district/create', [DistrictController::class, 'create'])->name('district-create');
+        Route::post('/district/store', [DistrictController::class, 'store'])->name('district-store');
+        Route::get('/district', [DistrictController::class, 'index'])->name('district-index');
+        Route::get('/district/edit/{id}', [DistrictController::class, 'edit'])->name('district-edit');
+        Route::post('/district/update', [DistrictController::class, 'update'])->name('district-update');
+        Route::get('/district/delete/{id}', [DistrictController::class, 'delete'])->name('district-delete');
+
+
+        Route::get('/city/create', [CityController::class, 'create'])->name('city-create');
+        Route::post('/city/store', [CityController::class, 'store'])->name('city-store');
+        Route::get('/city', [CityController::class, 'index'])->name('city-index');
+        Route::get('/city/edit/{id}', [CityController::class, 'edit'])->name('city-edit');
+        Route::post('/city/update', [CityController::class, 'update'])->name('city-update');
+        Route::get('/city/delete/{id}', [CityController::class, 'delete'])->name('city-delete');
+
+
+        Route::get('/branch/create', [BranchController::class, 'create'])->name('branch-create');
+        Route::post('/branch/store', [BranchController::class, 'store'])->name('branch-store');
+        Route::get('/branch', [BranchController::class, 'index'])->name('branch-index');
+        Route::get('/branch/edit/{id}', [BranchController::class, 'edit'])->name('branch-edit');
+        Route::post('/branch/update', [BranchController::class, 'update'])->name('branch-update');
+        Route::get('/branch/delete/{id}', [BranchController::class, 'delete'])->name('branch-delete');
 
     });
 });

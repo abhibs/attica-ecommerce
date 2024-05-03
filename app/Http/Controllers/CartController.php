@@ -8,6 +8,11 @@ use App\Models\Pincode;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Auth;
+use App\Models\State;
+use App\Models\District;
+use App\Models\City;
+
+
 
 class CartController extends Controller
 {
@@ -189,6 +194,7 @@ class CartController extends Controller
     public function checkout()
     {
 
+
         if (Auth::check()) {
 
             if (Cart::total() > 0) {
@@ -198,9 +204,17 @@ class CartController extends Controller
                 $cartTotal = Cart::total();
                 $user = Auth::user();
 
+                $states = State::latest()->get();
+                $districts = District::latest()->get();
+                $cities = City::latest()->get();
+
+
+
+
+
                 // dd($carts);
 
-                return view('user.checkout', compact('carts', 'cartQty', 'cartTotal', 'user'));
+                return view('user.checkout', compact('carts', 'cartQty', 'cartTotal', 'user', 'states', 'districts', 'cities'));
 
 
             } else {
@@ -230,6 +244,8 @@ class CartController extends Controller
 
     }
 
-    
+
+
+
 
 }

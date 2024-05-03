@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\State;
+use App\Models\Branch;
 
-class StateController extends Controller
+class BranchController extends Controller
 {
     public function create()
     {
-        return view('admin.state.create');
+        return view('admin.branch.create');
     }
 
     public function store(Request $request)
@@ -22,29 +22,29 @@ class StateController extends Controller
             'name.required' => 'State Name is Required',
         ]);
 
-        State::insert([
+        Branch::insert([
             'name' => $request->name,
         ]);
 
         $notification = [
-            'message' => 'State Inserted Successfully',
+            'message' => 'Branch Inserted Successfully',
             'alert-type' => 'success'
         ];
 
-        return redirect()->route('state-index')->with($notification);
+        return redirect()->route('branch-index')->with($notification);
     }
 
     public function index()
     {
-        $datas = State::latest()->get();
+        $datas = Branch::latest()->get();
 
-        return view('admin.state.index', compact('datas'));
+        return view('admin.branch.index', compact('datas'));
     }
 
     public function edit($id)
     {
-        $data = State::findOrFail($id);
-        return view('admin.state.edit', compact('data'));
+        $data = Branch::findOrFail($id);
+        return view('admin.branch.edit', compact('data'));
     }
 
     public function update(Request $request)
@@ -52,19 +52,19 @@ class StateController extends Controller
 
         $id = $request->id;
 
-        State::findOrFail($id)->update([
+        Branch::findOrFail($id)->update([
             'name' => $request->name,
 
         ]);
 
 
         $notification = array(
-            'message' => 'State Updated Successfully',
+            'message' => 'Branch Updated Successfully',
             'alert-type' => 'success'
 
         );
 
-        return redirect()->route('state-index')->with($notification);
+        return redirect()->route('branch-index')->with($notification);
 
 
     }
@@ -72,10 +72,10 @@ class StateController extends Controller
     public function delete($id)
     {
 
-        State::findOrFail($id)->delete();
+        Branch::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'State Deleted Successfully',
+            'message' => 'Branch Deleted Successfully',
             'alert-type' => 'success'
 
         );

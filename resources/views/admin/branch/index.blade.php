@@ -3,19 +3,19 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">State</div>
+            <div class="breadcrumb-title pe-3">Branch</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All State</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Branch</li>
                     </ol>
                 </nav>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('state-create') }}" class="btn btn-primary">Add State</a>
+                    <a href="{{ route('branch-create') }}" class="btn btn-primary">Add Branch</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                         <thead>
                             <tr>
                                 <th>Sl</th>
-                                <th>State Name</th>
+                                <th>Branch Name</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,8 +41,8 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('state-edit', $item->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('state-delete', $item->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('branch-edit', $item->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('branch-delete', $item->id) }}" class="btn btn-danger"
                                             id="delete">Delete</a>
 
                                     </td>
@@ -54,7 +54,7 @@
                         <tfoot>
                             <tr>
                                 <th>Sl</th>
-                                <th>State Name </th>
+                                <th>Branch Name </th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
