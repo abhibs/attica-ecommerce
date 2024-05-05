@@ -4,34 +4,16 @@
         <div class="container">
             <div class="home-slide-cover mt-30">
                 <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
-                    <div class="single-hero-slider single-animation-wrap"
-                        style="background-image: url(user/assets/imgs/slider/banner2.jpg)">
-                        <div class="slider-content">
-                            {{-- <h1 class="display-2 mb-40">
-                                Don’t miss amazing<br />
-                                grocery deals
-                            </h1> --}}
-                            {{-- <p class="mb-65">Sign up for the daily newsletter</p>
-                            <form class="form-subcriber d-flex">
-                                <input type="email" placeholder="Your emaill address" />
-                                <button class="btn" type="submit">Subscribe</button>
-                            </form> --}}
+                    @foreach ($banners as $item)
+                        <div class="single-hero-slider single-animation-wrap"
+                            style="background-image: url({{ asset($item->image) }})">
+                            <div class="slider-content">
+
+                            </div>
                         </div>
-                    </div>
-                    <div class="single-hero-slider single-animation-wrap"
-                        style="background-image: url(user/assets/imgs/slider/banner2.jpg)">
-                        {{-- <div class="slider-content">
-                            <h1 class="display-2 mb-40">
-                                Fresh Vegetables<br />
-                                Big discount
-                            </h1>
-                            <p class="mb-65">Save up to 50% off on your first order</p>
-                            <form class="form-subcriber d-flex">
-                                <input type="email" placeholder="Your emaill address" />
-                                <button class="btn" type="submit">Subscribe</button>
-                            </form>
-                        </div> --}}
-                    </div>
+                    @endforeach
+
+
                 </div>
                 <div class="slider-arrow hero-slider-1-arrow"></div>
             </div>
@@ -72,28 +54,26 @@
     <section>
         <div class="container my-5">
             <div class="row">
-                <div class="col text-center">
-                    <h1 class="text-warning">Akshaya Tritiya</h1>
-                    <h5><strong>"Embrace the Eternal Gold of Akshaya Tritiya, where blessings flow
-                            endlessly
-                            and fortune never diminishes"</strong></h5>
+                <div class="col text-center p-5">
+                    <h1 style="color:#EECD5A">{{ $occation->name }}</h1>
+                    <h5 class="text-muted" style="margin-top: 10px;">{{ $occation->content }}</h5>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ asset('user/assets/imgs/gold/aksht.jpeg') }}" alt="main-img" class="img-fluid">
+                    <img src="{{ asset($occation->image1) }}" alt="main-img" class="img-fluid">
                 </div>
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="{{ asset('user/assets/imgs/gold/banner.jpeg') }}" alt="" class="img-fluid">
+                            <img src="{{ asset($occation->image2) }}" alt="" class="img-fluid">
                         </div>
                         <div class="col-md-6 p-1">
-                            <img src="{{ asset('user/assets/imgs/gold/abc.jpeg') }}" alt="" class="img-fluid">
+                            <img src="{{ asset($occation->image3) }}" alt="" class="img-fluid">
                         </div>
                         <div class="col-md-6 p-1">
-                            <img src="{{ asset('user/assets/imgs/gold/abc.jpeg') }}" alt="" class="img-fluid">
+                            <img src="{{ asset($occation->image4) }}" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -101,19 +81,19 @@
         </div>
     </section>
 
-    <div class="container my-5">
+    {{-- <div class="container">
         <div class="row">
             <div class="col-12 mx-auto">
-                <p class="text-center"><strong>
-                        Celebrate Akshaya Tritiya, a day revered for its boundless blessings and the enduring promise of
-                        eternal prosperity symbolized by the timeless allure of gold.
-                        Embrace this auspicious occasion as an opportunity to ignite new beginnings and invite abundance
-                        into your life,
-                        ensuring that your journey is adorned with the gleam of everlasting fortune.
-                    </strong></p>
+                <h5 class="text-center text-muted">
+                    Celebrate Akshaya Tritiya, a day revered for its boundless blessings and the enduring promise of
+                    eternal prosperity symbolized by the timeless allure of gold.
+                    Embrace this auspicious occasion as an opportunity to ignite new beginnings and invite abundance
+                    into your life,
+                    ensuring that your journey is adorned with the gleam of everlasting fortune.
+                </h5>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 

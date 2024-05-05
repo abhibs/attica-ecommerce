@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\MultiImg;
-
-
-
+use App\Models\Occasion;
+use App\Models\Banner;
 
 class HomeController extends Controller
 {
     public function index()
     {
+
+        $occation = Occasion::first();
         $featured_products = Product::where('status', 1)->where('featured_product', 1)->inRandomOrder()->get();
         $newarrived_products = Product::where('status', 1)->where('new_arrivals', 1)->inRandomOrder()->get();
 
@@ -26,7 +27,10 @@ class HomeController extends Controller
         $barCategory = Category::where('slug', 'gold-bar')->first();
         $barCategoryproducts = Product::where('category_id', $barCategory->id)->where('status', 1)->inRandomOrder()->limit(5)->get();
 
-        return view('user.welcome', compact('newarrived_products', 'featured_products', 'coinCategoryproducts', 'barCategoryproducts'));
+        $banners = Banner::where('status', 1)->get();
+
+
+        return view('user.welcome', compact('newarrived_products', 'featured_products', 'coinCategoryproducts', 'barCategoryproducts', 'occation', 'banners'));
     }
 
     public function contact()
@@ -84,6 +88,18 @@ class HomeController extends Controller
         $relatedProduct = Product::where('category_id', $category->id)->orderBy('id', 'DESC')->inRandomOrder()->get();
 
         return view('user.cat_products', compact('relatedProduct', 'category'));
+    }
+
+
+    public function searchByName(Request $request)
+    {
+        $request->validate(['search' => "required"]);
+
+        $item = $request->search;
+
+        $products = Product::where('name', 'LIKE', "%$item%")->get();
+        // dd($products);
+        return view('user.search_by_name', compact('products', 'item'));
     }
 
 

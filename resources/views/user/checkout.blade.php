@@ -26,19 +26,7 @@
                     <h4 class="mb-30">Billing Details</h4>
                     <form method="post" action="{{ route('user-checkout-store') }}">
                         @csrf
-                        {{-- <h6 class="mb-3">Type of Delivery</h6>
-                        <div class="form-group col-lg-6">
-                            <label class="radio-inline">
-                                <input type="radio" name="type_delivery" value="Branch_Visit">
-                                <p class="border p-3" style="border-radius: 100px;">Branch Visit</p>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="type_delivery" value="Delivery Boy">
-                                <p class="border p-3" style="border-radius: 100px;">Delivery Boy
-                                </p>
 
-                            </label>
-                        </div> --}}
 
                         <div class="row">
                             <div class="form-group col-lg-6">
@@ -63,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="phone" value="{{ $user->phone }}"
+                                <input type="text" name="phone" value="{{ $user->phone }}"
                                     placeholder="Enter Phone Number">
                             </div>
                         </div>
@@ -83,8 +71,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="alt_phone"
-                                    placeholder="Alternative Phone Number">
+                                <input type="text" name="alt_phone" placeholder="Alternative Phone Number">
                             </div>
                         </div>
 
@@ -103,29 +90,26 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="address" placeholder="Enter Address">
+                                <input type="text" name="address" placeholder="Enter Address">
                             </div>
                         </div>
 
 
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="pincode" placeholder="Enter Pincode">
+                                <input type="text" name="pincode" placeholder="Enter Pincode">
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="house_no"
-                                    placeholder="House Number, Builiding Name">
+                                <input type="text" name="house_no" placeholder="House Number, Builiding Name">
                             </div>
                         </div>
 
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="road_name"
-                                    placeholder="Road Name, Area, Colony ">
+                                <input type="text" name="road_name" placeholder="Road Name, Area, Colony ">
                             </div>
                             <div class="form-group col-lg-6">
-                                <input required="" type="text" name="landmark"
-                                    placeholder="Near Famous Shop/Mall/Landmark">
+                                <input type="text" name="landmark" placeholder="Near Famous Shop/Mall/Landmark">
                             </div>
                         </div>
 
@@ -153,9 +137,7 @@
 
 
 
-                        {{-- <div class="form-group mb-30">
-                            <textarea rows="5" placeholder="Additional information"></textarea>
-                        </div> --}}
+
 
 
 
@@ -167,7 +149,6 @@
                 <div class="border p-40 cart-totals ml-30 mb-50">
                     <div class="d-flex align-items-end justify-content-between mb-30">
                         <h4>Your Order</h4>
-                        {{-- <h6 class="text-muted">Subtotal</h6> --}}
                     </div>
                     <div class="divider-2 mb-30"></div>
                     <div class="table-responsive order_table checkout">
@@ -225,8 +206,8 @@
 
                         <div class="custome-radio">
 
-                            <input class="form-check-input" required="" type="radio" name="payment_option"
-                                value="cod" id="exampleRadios4" checked="">
+                            <input class="form-check-input" type="radio" name="payment_option" value="cod"
+                                id="exampleRadios4" checked="">
 
                             <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse"
                                 data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>

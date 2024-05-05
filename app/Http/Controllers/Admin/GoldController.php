@@ -41,7 +41,7 @@ class GoldController extends Controller
     {
         $datas = Gold::latest()->get();
 
-        
+
         return view('admin.gold.index', compact('datas'));
     }
 

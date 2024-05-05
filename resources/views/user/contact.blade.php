@@ -4,7 +4,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Pages <span></span> Contact
+                <span></span> Contact
             </div>
         </div>
     </div>
@@ -18,14 +18,12 @@
                             <div class="col-xl-8">
                                 <div class="contact-from-area padding-20-row-col">
                                     <h5 class="text-brand mb-10">Contact form</h5>
-                                    <h2 class="mb-10">Drop Us a Line</h2>
-                                    <p class="text-muted mb-30 font-sm">Your email address will not be published. Required
-                                        fields are marked *</p>
-                                    <form class="contact-form-style mt-30" id="contact-form" action="#" method="post">
+
+                                    <form class="contact-form-style mt-30" action="" method="post">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="input-style mb-20">
-                                                    <input name="name" placeholder="First Name" type="text" />
+                                                    <input name="name" placeholder="Your Name" type="text" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
@@ -52,12 +50,11 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <p class="form-messege"></p>
                                 </div>
                             </div>
-                            <div class="col-lg-4 pl-50 d-lg-block d-none">
-                                <img class="border-radius-15 mt-50" src="assets/imgs/page/contact-2.png" alt="" />
-                            </div>
+
+
+
                         </div>
                     </section>
                 </div>

@@ -177,7 +177,7 @@
 
             </ul>
         </li>
-        {{-- <li>
+        <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-map-alt"></i>
                 </div>
@@ -189,7 +189,31 @@
                 <li> <a href="{{ route('branch-index') }}"><i class="bx bx-right-arrow-alt"></i>All Branches</a>
                 </li>
             </ul>
-        </li> --}}
+        </li>
+
+        <li>
+            <a href="{{ route('occasion-index') }}">
+                <div class="parent-icon"><i class="bx bx-lock"></i>
+                </div>
+                <div class="menu-title">Occasion</div>
+            </a>
+
+        </li>
+
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-map-alt"></i>
+                </div>
+                <div class="menu-title">Banner</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('banner-create') }}"><i class="bx bx-right-arrow-alt"></i>Add Banner</a>
+                </li>
+                <li> <a href="{{ route('banner-index') }}"><i class="bx bx-right-arrow-alt"></i>All Banner</a>
+                </li>
+            </ul>
+        </li>
 
     </ul>
     <!--end navigation-->

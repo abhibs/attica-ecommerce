@@ -13,6 +13,10 @@ use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\OccasionController;
+use App\Http\Controllers\Admin\BannerController;
+
+
 
 
 
@@ -116,5 +120,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/branch/update', [BranchController::class, 'update'])->name('branch-update');
         Route::get('/branch/delete/{id}', [BranchController::class, 'delete'])->name('branch-delete');
 
+        Route::get('/occasion', [OccasionController::class, 'index'])->name('occasion-index');
+        Route::post('/occasion/update', [OccasionController::class, 'update'])->name('occasion-update');
+
+
+        Route::get('/banner/create', [BannerController::class, 'create'])->name('banner-create');
+        Route::post('/banner/store', [BannerController::class, 'store'])->name('banner-store');
+        Route::get('/banner', [BannerController::class, 'index'])->name('banner-index');
+        Route::get('/banner/edit/{id}', [BannerController::class, 'edit'])->name('banner-edit');
+        Route::post('/banner/update', [BannerController::class, 'update'])->name('banner-update');
+        Route::get('/banner/delete/{id}', [BannerController::class, 'delete'])->name('banner-delete');
+        Route::get('/banner/inactive/{id}', [BannerController::class, 'inactive'])->name('banner-inactive');
+        Route::get('/banner/active/{id}', [BannerController::class, 'active'])->name('banner-active');
     });
 });
