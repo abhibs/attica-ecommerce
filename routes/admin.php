@@ -15,16 +15,7 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\OccasionController;
 use App\Http\Controllers\Admin\BannerController;
-
-
-
-
-
-
-
-
-
-
+use App\Http\Controllers\Admin\OrderController;
 
 
 Route::get('/test', function () {
@@ -132,5 +123,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/banner/delete/{id}', [BannerController::class, 'delete'])->name('banner-delete');
         Route::get('/banner/inactive/{id}', [BannerController::class, 'inactive'])->name('banner-inactive');
         Route::get('/banner/active/{id}', [BannerController::class, 'active'])->name('banner-active');
+
+        Route::get('/pending/orders', [OrderController::class, 'pendingOrder'])->name('pending-order');
+
+
+
+
     });
 });
