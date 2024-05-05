@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Intervention\Image\Facades\Image;
+use App\Models\Order;
+
 
 class UserController extends Controller
 {
@@ -162,6 +164,14 @@ class UserController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('login')->with($notification);
+    }
+
+
+    public function userOrder()
+    {
+        $id = Auth::user()->id;
+        $orders = Order::where('user_id', $id)->orderBy('id', 'DESC')->get();
+        return view('user.orders', compact('orders'));
     }
 
 

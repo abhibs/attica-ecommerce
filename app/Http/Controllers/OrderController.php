@@ -61,7 +61,7 @@ class OrderController extends Controller
             'message' => 'Your Order Place Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->route('user-dashboard')->with($notification);
+        return redirect()->route('user-order')->with($notification);
 
     }
 }

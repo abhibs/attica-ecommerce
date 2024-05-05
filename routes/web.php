@@ -75,6 +75,7 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('/checkout/store', [CheckoutController::class, 'checkoutStore'])->name('user-checkout-store');
 
         Route::post('/cod/order', [OrderController::class, 'codOrder'])->name('cod-order-store');
+        Route::get('/orders', [UserController::class, 'userOrder'])->name('user-order');
 
 
     });
