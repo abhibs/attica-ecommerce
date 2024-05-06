@@ -47,8 +47,7 @@
 
 
                                     <td>
-                                        <a href="{{ route('order-detail', $item->id) }}" class="btn btn-info"><i
-                                                class="fa fa-eye"></i></a>
+                                        <a href="" class="btn btn-info"><i class="fa fa-eye"></i></a>
 
 
                                     </td>

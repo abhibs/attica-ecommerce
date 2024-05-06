@@ -103,6 +103,12 @@ class HomeController extends Controller
     }
 
 
+    public function contactPost(Request $request)
+    {
+        dd($request->all());
+    }
+
+
 
 
 

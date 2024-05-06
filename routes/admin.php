@@ -125,6 +125,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/banner/active/{id}', [BannerController::class, 'active'])->name('banner-active');
 
         Route::get('/pending/orders', [OrderController::class, 'pendingOrder'])->name('pending-order');
+        Route::get('/confirmed/orders', [OrderController::class, 'confirmedOrder'])->name('confirmed-order');
+        Route::get('/processing/orders', [OrderController::class, 'processingOrder'])->name('processing-order');
+        Route::get('/deliverd/orders', [OrderController::class, 'deliveredOrder'])->name('deliverd-order');
+
+
+        Route::get('/order/detail/{id}', [OrderController::class, 'orderDetail'])->name('order-detail');
+        Route::get('/pending/confirm/{id}', [OrderController::class, 'pendingToConfirm'])->name('pending-confirm');
+        Route::get('/confirm/processing/{id}', [OrderController::class, 'confirmToProcess'])->name('confirm-process');
+        Route::get('/processing/delivered/{id}', [OrderController::class, 'processToDelivered'])->name('process-deliver');
+
+
 
 
 

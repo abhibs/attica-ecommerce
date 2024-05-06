@@ -19,7 +19,9 @@
                                 <div class="contact-from-area padding-20-row-col">
                                     <h5 class="text-brand mb-10">Contact form</h5>
 
-                                    <form class="contact-form-style mt-30" action="" method="post">
+                                    <form class="contact-form-style mt-30" action="{{ route('user-contact-post') }}"
+                                        method="post">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="input-style mb-20">

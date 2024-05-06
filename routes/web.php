@@ -46,6 +46,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/register/post', [UserController::class, 'registerPost'])->name('user-register-post');
     Route::post('/login/post', [UserController::class, 'loginPost'])->name('user-login-post');
     Route::get('/order/tracking', [HomeController::class, 'orderTracking'])->name('order-track');
+    Route::post('/contact/post', [HomeController::class, 'contactPost'])->name('user-contact-post');
 
 
     Route::group(['middleware' => 'auth:web'], function () {
