@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\OccasionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ContactController;
+
 
 
 Route::get('/test', function () {
@@ -137,6 +139,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
+        Route::get('/contact/index', [ContactController::class, 'index'])->name('contact-list');
+        Route::get('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact-delete');
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -105,7 +106,36 @@ class HomeController extends Controller
 
     public function contactPost(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ], [
+            'name.required' => 'Name is Required',
+            'email.required' => 'Email is Required',
+            'phone.required' => 'Phone is Required',
+            'subject.required' => 'Subject is Required',
+            'message.required' => 'Message is Required',
+        ]);
+
+        Contact::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->subject,
+
+        ]);
+
+        $notification = [
+            'message' => 'Contact Us Uploaded Successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
     }
 
 

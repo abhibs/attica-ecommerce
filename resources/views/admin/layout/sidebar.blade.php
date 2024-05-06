@@ -239,6 +239,21 @@
             </ul>
         </li>
 
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
+                </div>
+                <div class="menu-title">Contact List</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('contact-list') }}"><i class="bx bx-right-arrow-alt"></i>All Contacts</a>
+                </li>
+
+
+            </ul>
+        </li>
+
     </ul>
     <!--end navigation-->
 </div>
