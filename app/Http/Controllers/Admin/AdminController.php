@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 use Auth;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Product;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Branch;
+use App\Models\Order;
+
+
+
+
 
 class AdminController extends Controller
 {
@@ -40,7 +49,23 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.index');
+        $productCount = Product::where('status', 1)->count();
+        $userCount = User::count();
+        $categoryCount = Category::count();
+        $branchCount = Branch::count();
+        $pendingOrderCount = Order::where('status', 'pending')->count();
+        $confirmOrderCount = Order::where('status', 'confirm')->count();
+        $processingOrderCount = Order::where('status', 'processing')->count();
+        $deliveredOrderCount = Order::where('status', 'deliverd')->count();
+
+
+
+
+
+
+
+
+        return view('admin.index', compact('productCount', 'userCount', 'categoryCount', 'branchCount', 'pendingOrderCount', 'confirmOrderCount', 'processingOrderCount', 'deliveredOrderCount'));
     }
 
     public function adminLogout()
