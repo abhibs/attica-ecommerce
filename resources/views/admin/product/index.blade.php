@@ -40,6 +40,7 @@
                                 <th> Total </th>
                                 <th> Rating </th>
                                 <th> Stock </th>
+                                <th> Status </th>
 
                                 <th>Action</th>
                             </tr>
@@ -60,12 +61,29 @@
                                     <td>{{ $item->total }}</td>
                                     <td>{{ $item->rating }}</td>
                                     <td>{{ $item->stock }}</td>
+                                    <td>
+                                        @if ($item->status == 1)
+                                            <span class="badge badge-pill bg-success">Active</span>
+                                        @else
+                                            <span class="badge badge-pill bg-danger">InActive</span>
+                                        @endif
 
+
+                                    </td>
 
                                     <td>
                                         <a href="" class="btn btn-info">Edit</a>
                                         <a href="{{ route('product-delete', $item->id) }}" class="btn btn-danger"
                                             id="delete">Delete</a>
+                                        @if ($item->status == 1)
+                                            <a href="{{ route('product-inactive', $item->id) }}"
+                                                class="btn btn-primary rounded-pill waves-effect waves-light"
+                                                title="Inactive"><i class="fa-solid fa-thumbs-down"></i> </a>
+                                        @else
+                                            <a href="{{ route('product-active', $item->id) }}"
+                                                class="btn btn-primary rounded-pill waves-effect waves-light"
+                                                title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
+                                        @endif
 
                                     </td>
                                 </tr>
@@ -87,6 +105,7 @@
                                 <th> Total </th>
                                 <th> Rating </th>
                                 <th> Stock </th>
+                                <th> Status </th>
 
                                 <th>Action</th>
                             </tr>
