@@ -45,7 +45,7 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::post('/register/post', [UserController::class, 'registerPost'])->name('user-register-post');
     Route::post('/login/post', [UserController::class, 'loginPost'])->name('user-login-post');
-    Route::get('/order/tracking', [HomeController::class, 'orderTracking'])->name('order-track');
+    // Route::get('/order/tracking', [HomeController::class, 'orderTracking'])->name('order-track');
     Route::post('/contact/post', [HomeController::class, 'contactPost'])->name('user-contact-post');
 
 
@@ -78,6 +78,9 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('/cod/order', [OrderController::class, 'codOrder'])->name('cod-order-store');
         Route::get('/orders', [UserController::class, 'userOrder'])->name('user-order');
 
+
+        Route::get('/track/order', [UserController::class, 'trackOrder'])->name('user-track-order');
+        Route::post('/order/tracking/details', [UserController::class, 'orderTrackPost'])->name('order-track-post');
 
     });
 });

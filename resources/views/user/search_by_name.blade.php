@@ -26,7 +26,7 @@
                             <div class="product-cart-wrap mb-30">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="shop-product-right.html">
+                                        <a href="{{ route('product-detail', [$item->id, $item->slug]) }}">
                                             <img class="default-img" src="{{ asset($item->image) }}" alt="" />
                                             <img class="hover-img" src="{{ asset($item->image) }}" alt="" />
                                         </a>

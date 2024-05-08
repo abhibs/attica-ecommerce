@@ -167,12 +167,12 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-line-chart"></i>
                 </div>
-                <div class="menu-title">City</div>
+                <div class="menu-title">Area</div>
             </a>
             <ul>
-                <li> <a href="{{ route('city-create') }}"><i class="bx bx-right-arrow-alt"></i>Add City</a>
+                <li> <a href="{{ route('city-create') }}"><i class="bx bx-right-arrow-alt"></i>Add Area</a>
                 </li>
-                <li> <a href="{{ route('city-index') }}"><i class="bx bx-right-arrow-alt"></i>All Cities</a>
+                <li> <a href="{{ route('city-index') }}"><i class="bx bx-right-arrow-alt"></i>All Areas</a>
                 </li>
 
             </ul>

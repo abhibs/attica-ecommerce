@@ -80,7 +80,7 @@
                             <div class="form-group col-lg-6">
                                 <div class="custom_select">
                                     <select name="city_id" class="form-control select-active">
-                                        <option value="">Select City</option>
+                                        <option value="">Select Area</option>
                                         @foreach ($cities as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach

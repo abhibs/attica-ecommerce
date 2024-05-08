@@ -18,6 +18,11 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link {{ $route == 'user-track-order' ? 'active' : '' }}" href="{{ route('user-track-order') }}"><i
+                class="fi-rs-shopping-bag mr-10"></i>User Track Order</a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('user-logout') }}"><i class="fi-rs-shopping-bag mr-10"></i>Logout</a>
     </li>
     {{-- <li class="nav-item">

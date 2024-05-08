@@ -19,7 +19,7 @@
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Create an Account</h1>
                                         <p class="mb-30">Already have an account? <a href="{{ route('login') }}">Login</a>
-                                            </p>
+                                        </p>
                                     </div>
                                     <form method="post" action="{{ route('user-register-post') }}">
                                         @csrf
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 pr-30 d-none d-lg-block">
+                        {{-- <div class="col-lg-6 pr-30 d-none d-lg-block">
                             <div class="card-login mt-115">
                                 <a href="#" class="social-login facebook-login">
                                     <img src="assets/imgs/theme/icons/logo-facebook.svg" alt="" />
@@ -63,7 +63,7 @@
                                     <span>Continue with Apple</span>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

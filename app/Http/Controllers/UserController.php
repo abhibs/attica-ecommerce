@@ -174,5 +174,39 @@ class UserController extends Controller
         return view('user.orders', compact('orders'));
     }
 
+    public function trackOrder()
+    {
+        return view('user.track_order');
+    }
+
+    public function orderTrackPost(Request $request)
+    {
+        $request->validate([
+            'code' => 'required',
+
+        ], [
+            'code.required' => 'Order Invoice Number Required',
+        ]);
+
+        $invoice = $request->code;
+
+        $track = Order::where('invoice_no', $invoice)->first();
+
+        if ($track) {
+            return view('user.track_detail', compact('track'));
+
+        } else {
+
+            $notification = array(
+                'message' => 'Invoice Code Is Invalid',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+
+        }
+
+    }
+
 
 }

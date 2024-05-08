@@ -79,7 +79,7 @@
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" name="name"
                                                 class="form-control @error('name') is-invalid @enderror" id=""
-                                                placeholder="Enter City Name" />
+                                                placeholder="Enter Area Name" />
 
                                             @error('name')
                                                 <span class="text-danger">{{ $message }}</span>

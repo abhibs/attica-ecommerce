@@ -208,7 +208,7 @@
                 success: function(response) {
                     // console.log(response)
 
-                    $('span[id="cartSubTotal"]').text(response.cartTotal);
+                    // $('span[id="cartSubTotal"]').text(response.subtotal);
                     $('#cartQty').text(response.cartQty);
 
                     var miniCart = ""
@@ -221,7 +221,7 @@
                 </div>
                 <div class="shopping-cart-title" style="margin: -73px 74px 14px; width" 146px;>
                     <h4><a href=""> ${value.name} </a></h4>
-                    <h4><span>${value.qty} × </span>${value.price}</h4>
+                    <h4><span>${value.qty} × </span>${value.options.price}</h4>
                 </div>
                 <div class="shopping-cart-delete" style="margin: -85px 1px 0px;">
                     <a type="submit" id="${value.rowId}" onclick="miniCartRemove(this.id)"  ><i class="fi-rs-cross-small"></i></a>
@@ -686,7 +686,7 @@ ${value.name}
     </script>
     <!-- toastr js end -->
 
-    
+
 
 
 </body>

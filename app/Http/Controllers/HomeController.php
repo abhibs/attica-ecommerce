@@ -60,17 +60,6 @@ class HomeController extends Controller
         return view('user.about');
     }
 
-    public function orderTracking()
-    {
-        return view('user.ordertraking');
-    }
-
-
-
-
-
-
-
     public function productDetais($id, $slug)
     {
         $product = Product::findOrFail($id);

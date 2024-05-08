@@ -12,7 +12,7 @@
 
                             <li><a href="{{ route('user-cart') }}">My Cart</a></li>
                             <li><a href="{{ route('user-checkout') }}">Checkout</a></li>
-                            <li><a href="{{ route('order-track') }}">Order Tracking</a></li>
+                            <li><a href="{{ route('user-track-order') }}">Order Tracking</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,15 +100,12 @@
                                     <div id="miniCart">
 
                                     </div>
-                                    <div class="shopping-cart-footer">
+                                    {{-- <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
                                             <h4>Total <span id="cartSubTotal"> </span></h4>
                                         </div>
-                                        {{-- <div class="shopping-cart-button">
-                                            <a href="shop-cart.html" class="outline">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
-                                        </div> --}}
-                                    </div>
+
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="header-action-icon-2">
@@ -126,7 +123,7 @@
                                                     Account</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('order-track') }}"><i
+                                                <a href="{{ route('user-track-order') }}"><i
                                                         class="fi fi-rs-location-alt mr-10"></i>Order
                                                     Tracking</a>
                                             </li>

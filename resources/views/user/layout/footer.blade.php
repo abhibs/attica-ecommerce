@@ -31,7 +31,7 @@
                         <li><a href="{{ route('user-register') }}">Sign In</a></li>
                         <li><a href="{{ route('user-cart') }}">View Cart</a></li>
                         <li><a href="{{ route('user-wishlist') }}">My Wishlist</a></li>
-                        <li><a href="{{ route('order-track') }}">Track My Order</a></li>
+                        <li><a href="{{ route('user-track-order') }}">Track My Order</a></li>
 
                     </ul>
                 </div>

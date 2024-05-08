@@ -31,7 +31,7 @@
                                 <th>Sl</th>
                                 <th>State Name</th>
                                 <th>District Name</th>
-                                <th>City Name</th>
+                                <th>Area Name</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -61,7 +61,7 @@
                                 <th>Sl</th>
                                 <th>State Name</th>
                                 <th>District Name</th>
-                                <th>City Name</th>
+                                <th>Area Name</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>

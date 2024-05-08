@@ -98,12 +98,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/district/delete/{id}', [DistrictController::class, 'delete'])->name('district-delete');
 
 
-        Route::get('/city/create', [CityController::class, 'create'])->name('city-create');
-        Route::post('/city/store', [CityController::class, 'store'])->name('city-store');
-        Route::get('/city', [CityController::class, 'index'])->name('city-index');
-        Route::get('/city/edit/{id}', [CityController::class, 'edit'])->name('city-edit');
-        Route::post('/city/update', [CityController::class, 'update'])->name('city-update');
-        Route::get('/city/delete/{id}', [CityController::class, 'delete'])->name('city-delete');
+        Route::get('/area/create', [CityController::class, 'create'])->name('city-create');
+        Route::post('/ares/store', [CityController::class, 'store'])->name('city-store');
+        Route::get('/area', [CityController::class, 'index'])->name('city-index');
+        Route::get('/area/edit/{id}', [CityController::class, 'edit'])->name('city-edit');
+        Route::post('/area/update', [CityController::class, 'update'])->name('city-update');
+        Route::get('/area/delete/{id}', [CityController::class, 'delete'])->name('city-delete');
 
 
         Route::get('/branch/create', [BranchController::class, 'create'])->name('branch-create');
