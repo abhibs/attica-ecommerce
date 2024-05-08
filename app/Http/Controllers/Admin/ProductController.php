@@ -53,6 +53,7 @@ class ProductController extends Controller
             'featured_product' => $request->featured_product,
             'new_arrivals' => $request->new_arrivals,
             'rating' => $request->rating,
+            'stock' => $request->stock,
             'image' => $save_url,
             'status' => 1,
             'created_at' => Carbon::now(),
@@ -83,15 +84,33 @@ class ProductController extends Controller
         );
 
         return redirect()->route('product-index')->with($notification);
-
-
-
     }
 
     public function index()
     {
         $datas = Product::latest()->get();
         return view('admin.product.index', compact('datas'));
+    }
+
+    public function delete($id)
+    {
+        $product = Product::findOrFail($id);
+        unlink($product->image);
+        Product::findOrFail($id)->delete();
+
+        $imges = MultiImg::where('product_id', $id)->get();
+        foreach ($imges as $img) {
+            unlink($img->photo_name);
+            MultiImg::where('product_id', $id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Product Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
     }
 
 }

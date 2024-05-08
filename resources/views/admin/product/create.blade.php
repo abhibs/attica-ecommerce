@@ -87,7 +87,8 @@
                                                 name="gold_id">
                                                 <option selected="">Choose the Gold Rate</option>
                                                 @foreach ($golds as $item)
-                                                    <option value="{{ $item->id }}">{{$item->name}} = {{ $item->rate }} Rs.</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }} =
+                                                        {{ $item->rate }} Rs.</option>
                                                 @endforeach
 
                                             </select>
@@ -106,7 +107,7 @@
                                         </div>
 
 
-                                        
+
                                         <div class="col-12">
                                             <label for="inputVendor" class="form-label">Gold Category</label>
                                             <select class="form-select mb-3" aria-label="Default select example"
@@ -129,10 +130,17 @@
 
                                             </select>
                                         </div>
+
+                                        <div class="col-12">
+                                            <label for="inputProductTags" class="form-label">Stock / Inventory</label>
+                                            <input type="number" class="form-control" name="stock"
+                                                id="inputProductTags" placeholder="Enter Stock / Inventory">
+                                        </div>
+
                                         <div class="col-12">
                                             <label for="inputProductTags" class="form-label">Rating From 1 to 5</label>
-                                            <input type="number" class="form-control" name="rating" id="inputProductTags"
-                                                placeholder="Enter Rating">
+                                            <input type="number" class="form-control" name="rating"
+                                                id="inputProductTags" placeholder="Enter Rating">
                                         </div>
 
                                         <div class="col-6">
