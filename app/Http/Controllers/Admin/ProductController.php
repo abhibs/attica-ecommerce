@@ -146,6 +146,12 @@ class ProductController extends Controller
 
     public function updateImage(Request $request)
     {
+        $request->validate([
+            'image' => 'required',
+
+        ], [
+            'image.required' => 'Image is Required',
+        ]);
 
         $pro_id = $request->id;
         $oldImage = $request->old_img;
@@ -172,6 +178,49 @@ class ProductController extends Controller
 
         return redirect()->back()->with($notification);
 
+
+    }
+
+    public function updateMultiImage(Request $request)
+    {
+        $imgs = $request->multi_img;
+
+        foreach ($imgs as $id => $img) {
+            $imgDel = MultiImg::findOrFail($id);
+            unlink($imgDel->photo_name);
+
+            $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(1000, 1000)->save('storage/products/multi-image/' . $make_name);
+            $uploadPath = 'storage/products/multi-image/' . $make_name;
+
+            MultiImg::where('id', $id)->update([
+                'photo_name' => $uploadPath,
+                'updated_at' => Carbon::now(),
+
+            ]);
+        } // end foreach
+
+        $notification = array(
+            'message' => 'Product Multi Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function deleteMultiImage($id)
+    {
+        $oldImg = MultiImg::findOrFail($id);
+        unlink($oldImg->photo_name);
+
+        MultiImg::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Product Multi Image Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
 
     }
 
