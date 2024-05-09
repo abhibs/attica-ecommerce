@@ -92,6 +92,17 @@ class ProductController extends Controller
         return view('admin.product.index', compact('datas'));
     }
 
+    public function edit($id)
+    {
+        $multiImgs = MultiImg::where('product_id', $id)->get();
+        $weights = Weight::latest()->get();
+        $categories = Category::latest()->get();
+        $qualities = Quality::latest()->get();
+        $golds = Gold::latest()->get();
+        $data = Product::findOrFail($id);
+        return view('admin.product.edit', compact('multiImgs', 'weights', 'qualities', 'categories', 'golds', 'data'));
+    }
+
     public function delete($id)
     {
         $product = Product::findOrFail($id);
