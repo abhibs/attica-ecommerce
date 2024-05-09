@@ -24,8 +24,10 @@
                 <h5 class="card-title">Edit Product</h5>
                 <hr />
 
-                <form id="myForm" method="post" action="" enctype="multipart/form-data">
+                <form id="myForm" method="post" action="{{ route('product-update') }}">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $data->id }}">
+
                     <div class="form-body mt-4">
                         <div class="row">
                             <div class="col-lg-8">
@@ -169,7 +171,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="d-grid">
-                                                <button type="submit" class="btn btn-primary">Save Product</button>
+                                                <button type="submit" class="btn btn-primary">Update Product</button>
                                             </div>
                                         </div>
                                     </div>

@@ -103,6 +103,47 @@ class ProductController extends Controller
         return view('admin.product.edit', compact('multiImgs', 'weights', 'qualities', 'categories', 'golds', 'data'));
     }
 
+
+    public function update(Request $request)
+    {
+        $id = $request->id;
+        $weight = Weight::findOrFail($request->input('weight_id'));
+        $gold = Gold::findOrFail($request->input('gold_id'));
+        $price = $weight->gram * $gold->rate;
+        $gst = $weight->gram * $gold->rate * 3 / 100;
+        $total = $price + $gst;
+
+
+        Product::findOrFail($id)->update([
+            'weight_id' => $request->weight_id,
+            'category_id' => $request->category_id,
+            'quality_id' => $request->quality_id,
+            'gold_id' => $request->gold_id,
+            'name' => $request->name,
+            'slug' => strtolower(str_replace(' ', '-', $request->name)),
+            'price' => $price,
+            'gst' => $gst,
+            'total' => $total,
+            'content' => $request->content,
+            'description' => $request->description,
+            'featured_product' => $request->featured_product,
+            'new_arrivals' => $request->new_arrivals,
+            'rating' => $request->rating,
+            'stock' => $request->stock,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Product Updated Without Image Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('product-index')->with($notification);
+
+
+
+    }
+
     public function delete($id)
     {
         $product = Product::findOrFail($id);

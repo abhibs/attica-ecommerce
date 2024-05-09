@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/product/store', [ProductController::class, 'store'])->name('product-store');
         Route::get('/product/index', [ProductController::class, 'index'])->name('product-index');
         Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product-edit');
+        Route::post('/product/update', [ProductController::class, 'update'])->name('product-update');
+
 
         Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('product-delete');
         Route::get('/product/inactive/{id}', [ProductController::class, 'inactive'])->name('product-inactive');
