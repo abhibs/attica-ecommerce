@@ -144,6 +144,37 @@ class ProductController extends Controller
 
     }
 
+    public function updateImage(Request $request)
+    {
+
+        $pro_id = $request->id;
+        $oldImage = $request->old_img;
+
+        $image = $request->file('image');
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(1000, 1000)->save('storage/products/image/' . $name_gen);
+        $save_url = 'storage/products/image/' . $name_gen;
+
+        if (file_exists($oldImage)) {
+            unlink($oldImage);
+        }
+
+        Product::findOrFail($pro_id)->update([
+
+            'image' => $save_url,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Product Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+
+    }
+
     public function delete($id)
     {
         $product = Product::findOrFail($id);

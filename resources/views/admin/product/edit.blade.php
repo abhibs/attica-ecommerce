@@ -1,6 +1,7 @@
 @extends('admin.layout.app')
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <div class="page-content">
 
         <!--breadcrumb-->
@@ -56,24 +57,6 @@
 
 
 
-                                    {{-- <div class="form-group mb-3">
-                                        <label for="inputProductTitle" class="form-label">Product Image</label>
-                                        <input name="image" class="form-control" type="file" id="formFile"
-                                            onChange="mainThamUrl(this)">
-
-                                        <img src="" id="mainThmb" class="mt-3" />
-                                    </div>
-
-
-
-                                    <div class="form-group mb-3">
-                                        <label for="inputProductTitle" class="form-label">Product Multiple Image</label>
-                                        <input class="form-control" name="multi_img[]" type="file" id="multiImg"
-                                            multiple="">
-
-                                        <div class="row mt-3" id="preview_img"></div>
-
-                                    </div> --}}
 
 
 
@@ -94,6 +77,24 @@
                                                         {{ $item->rate }} </option>
                                                 @endforeach
 
+                                                {{-- <div class="form-group mb-3">
+                                        <label for="inputProductTitle" class="form-label">Product Image</label>
+                                        <input name="image" class="form-control" type="file" id="formFile"
+                                            onChange="mainThamUrl(this)">
+
+                                        <img src="" id="mainThmb" class="mt-3" />
+                                    </div>
+
+
+
+                                    <div class="form-group mb-3">
+                                        <label for="inputProductTitle" class="form-label">Product Multiple Image</label>
+                                        <input class="form-control" name="multi_img[]" type="file" id="multiImg"
+                                            multiple="">
+
+                                        <div class="row mt-3" id="preview_img"></div>
+
+                                    </div> --}}
                                             </select>
                                         </div>
 
@@ -179,6 +180,41 @@
                             </div>
                         </div><!--end row-->
                     </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="page-content">
+            <h6 class="mb-0 text-uppercase">Update Product Image </h6>
+            <hr>
+            <div class="card">
+                <form method="post" action="{{ route('product-image-update') }}" enctype="multipart/form-data">
+                    @csrf
+
+                    <input type="hidden" name="id" value="{{ $data->id }}">
+                    <input type="hidden" name="old_img" value="{{ $data->image }}">
+
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Choose Image </label>
+                            <input name="image" class="form-control" type="file" id="formFile"
+                                onChange="mainThamUrl(this)">
+
+                            <img src="{{ asset($data->image) }}" id="mainThmb" class="mt-3"
+                                style="width:100px; height:100px" />
+
+                        </div>
+
+
+
+
+                        <input type="submit" class="btn btn-primary px-4" value="Update Image" />
+
+                    </div>
+
+                </form>
+
             </div>
         </div>
 
@@ -194,37 +230,5 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#multiImg').on('change', function() { //on file input change
-                if (window.File && window.FileReader && window.FileList && window
-                    .Blob) //check File API supported browser
-                {
-                    var data = $(this)[0].files; //this file data
-
-                    $.each(data, function(index, file) { //loop though each file
-                        if (/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file
-                                .type)) { //check supported file type
-                            var fRead = new FileReader(); //new filereader
-                            fRead.onload = (function(file) { //trigger function on successful read
-                                return function(e) {
-                                    var img = $('<img/>').addClass('thumb').attr('src',
-                                            e.target.result).width(100)
-                                        .height(80); //create image element
-                                    $('#preview_img').append(
-                                        img); //append image to output element
-                                };
-                            })(file);
-                            fRead.readAsDataURL(file); //URL representing the file's data.
-                        }
-                    });
-
-                } else {
-                    alert("Your browser doesn't support File API!"); //if File API is absent
-                }
-            });
-        });
     </script>
 @endsection
