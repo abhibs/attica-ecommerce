@@ -19,7 +19,7 @@ class BranchController extends Controller
             'name' => 'required',
 
         ], [
-            'name.required' => 'State Name is Required',
+            'name.required' => 'Branch Name is Required',
         ]);
 
         Branch::insert([

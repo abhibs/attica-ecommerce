@@ -3,19 +3,19 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">City</div>
+            <div class="breadcrumb-title pe-3">Area</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All City</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Area</li>
                     </ol>
                 </nav>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('city-create') }}" class="btn btn-primary">Add City</a>
+                    <a href="{{ route('city-create') }}" class="btn btn-primary">Add Area</a>
                 </div>
             </div>
         </div>

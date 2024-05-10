@@ -37,7 +37,7 @@
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" name="name"
                                                 class="form-control @error('name') is-invalid @enderror" id=""
-                                                placeholder="Enter State Name" />
+                                                placeholder="Enter Branch Name" />
 
                                             @error('name')
                                                 <span class="text-danger">{{ $message }}</span>

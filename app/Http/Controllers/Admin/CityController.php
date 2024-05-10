@@ -59,7 +59,7 @@ class CityController extends Controller
     {
 
         $states = State::latest()->get();
-        $districts = State::latest()->get();
+        $districts = District::latest()->get();
         $data = City::findOrFail($id);
         return view('admin.city.edit', compact('data', 'states', 'districts'));
     }

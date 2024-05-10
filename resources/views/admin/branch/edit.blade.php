@@ -38,7 +38,7 @@
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" name="name"
                                                 class="form-control @error('name') is-invalid @enderror" id=""
-                                                placeholder="Enter State Name" value="{{ $data->name }}" />
+                                                placeholder="Enter Branch Name" value="{{ $data->name }}" />
 
                                             @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
