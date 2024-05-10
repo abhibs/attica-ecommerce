@@ -28,6 +28,8 @@
                         @csrf
 
 
+
+
                         <div class="row">
                             <div class="form-group col-lg-6">
                                 <input type="text" name="name" value="{{ $user->name }}" readonly>
@@ -94,6 +96,37 @@
                             </div>
                         </div>
 
+                        <h6 class="mb-3">Type of Delivery</h6>
+                        <div class="form-group col-lg-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="type_delivery" value="Branch_Visit">
+                                <p class="border p-3" style="border-radius: 100px;">Branch Visit
+                                </p>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="type_delivery" value="Delivery_Boy">
+                                <p class="border p-3" style="border-radius: 100px;">Delivery Boy
+                                </p>
+
+                            </label>
+                        </div>
+
+                        <div class="row shipping_calculator">
+                            <div class="form-group col-lg-12">
+                                <div class="custom_select">
+                                    <select name="branch_id" class="form-control select-active">
+                                        <option value="">Select Branch</option>
+                                        @foreach ($branches as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
 
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
@@ -129,6 +162,8 @@
 
                             </label>
                         </div>
+
+
 
 
 

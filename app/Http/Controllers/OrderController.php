@@ -15,12 +15,22 @@ class OrderController extends Controller
 
     public function codOrder(Request $request)
     {
-        $total_amount = round(Cart::total());
+
+        $subtotal_amount = round(Cart::total());
+        if ($request->type_delivery == 'Delivery_Boy') {
+            $delivery_charge = 200;
+        } else {
+            $delivery_charge = 0;
+        }
+
+        $total_amount = $subtotal_amount + $delivery_charge;
+
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'state_id' => $request->state_id,
             'district_id' => $request->district_id,
             'city_id' => $request->city_id,
+            'branch_id' => $request->branch_id,
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -31,6 +41,8 @@ class OrderController extends Controller
             'road_name' => $request->road_name,
             'landmark' => $request->landmark,
             'type_address' => $request->type_address,
+            'type_delivery' => $request->type_delivery,
+            'delivery_charge' => $delivery_charge,
             'payment_type' => $request->payment_option,
             'payment_method' => 'Cash On Delivery',
             'currency' => 'IND',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Pincode;
@@ -207,6 +208,8 @@ class CartController extends Controller
                 $states = State::latest()->get();
                 $districts = District::latest()->get();
                 $cities = City::latest()->get();
+                $branches = Branch::latest()->get();
+
 
 
 
@@ -214,7 +217,7 @@ class CartController extends Controller
 
                 // dd($carts);
 
-                return view('user.checkout', compact('carts', 'cartQty', 'cartTotal', 'user', 'states', 'districts', 'cities'));
+                return view('user.checkout', compact('carts', 'cartQty', 'cartTotal', 'user', 'states', 'districts', 'cities', 'branches'));
 
 
             } else {

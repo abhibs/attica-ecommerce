@@ -37,7 +37,7 @@
                                         <h6 class="text-muted">Subtotal</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                                        <h4 class="text-brand text-end">Rs.{{ $cartTotal }}</h4>
                                     </td>
                                 </tr>
 
@@ -49,7 +49,7 @@
                                     </td>
                                     <td class="cart_total_amount">
                                         <h4 class="text-brand text-end">
-                                            0</h4>
+                                            Rs. {{ $deliveryCharge }}</h4>
                                     </td>
                                 </tr>
 
@@ -58,7 +58,7 @@
                                         <h6 class="text-muted">Grand Total</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">{{ $cartTotal }}</h4>
+                                        <h4 class="text-brand text-end">Rs. {{ $totalAmount }}</h4>
                                     </td>
                                 </tr>
 
@@ -100,25 +100,15 @@
                                     <input type="hidden" name="district_id" value="{{ $data['district_id'] }}">
                                     <input type="hidden" name="alt_phone" value="{{ $data['alt_phone'] }}">
                                     <input type="hidden" name="city_id" value="{{ $data['city_id'] }}">
+                                    <input type="hidden" name="branch_id" value="{{ $data['branch_id'] }}">
                                     <input type="hidden" name="address" value="{{ $data['address'] }}">
                                     <input type="hidden" name="pincode" value="{{ $data['pincode'] }}">
                                     <input type="hidden" name="house_no" value="{{ $data['house_no'] }}">
                                     <input type="hidden" name="road_name" value="{{ $data['road_name'] }}">
                                     <input type="hidden" name="landmark" value="{{ $data['landmark'] }}">
                                     <input type="hidden" name="type_address" value="{{ $data['type_address'] }}">
+                                    <input type="hidden" name="type_delivery" value="{{ $data['type_delivery'] }}">
                                     <input type="hidden" name="payment_option" value="{{ $data['payment_option'] }}">
-
-
-
-
-
-
-
-
-
-
-
-
 
                                 </label>
 
