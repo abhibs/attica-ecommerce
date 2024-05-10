@@ -28,6 +28,8 @@
                                 <th>User Name</th>
                                 <th>Date </th>
                                 <th>Invoice </th>
+                                <th>Sub Total </th>
+                                <th>Delivery Charges </th>
                                 <th>Amount </th>
                                 <th>Payment </th>
                                 <th>Status </th>
@@ -41,6 +43,8 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->order_date }}</td>
                                     <td>{{ $item->invoice_no }}</td>
+                                    <td>Rs. {{ $item->sub_total }}</td>
+                                    <td>Rs. {{ $item->delivery_charge }}</td>
                                     <td>Rs. {{ $item->amount }}</td>
                                     <td>{{ $item->payment_method }}</td>
                                     <td> <span class="badge rounded-pill bg-success"> {{ $item->status }}</span></td>
@@ -63,6 +67,8 @@
                                 <th>User Name</th>
                                 <th>Date </th>
                                 <th>Invoice </th>
+                                <th>Sub Total </th>
+                                <th>Delivery Charges </th>
                                 <th>Amount </th>
                                 <th>Payment </th>
                                 <th>Status </th>

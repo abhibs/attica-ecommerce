@@ -46,6 +46,7 @@ class OrderController extends Controller
             'payment_type' => $request->payment_option,
             'payment_method' => 'Cash On Delivery',
             'currency' => 'IND',
+            'sub_total' => $subtotal_amount,
             'amount' => $total_amount,
             'invoice_no' => 'AGC' . mt_rand(10000000, 99999999),
             'order_date' => Carbon::now()->format('d F Y'),
