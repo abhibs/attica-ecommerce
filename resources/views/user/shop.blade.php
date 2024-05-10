@@ -37,8 +37,8 @@
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a aria-label="Add To Wishlist" class="action-btn" href=""><i
-                                                class="fi-rs-heart"></i></a>
+                                        <a aria-label="Add To Wishlist" class="action-btn" id="{{ $item->id }}"
+                                            onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
                                         {{-- <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
                                                     class="fi-rs-shuffle"></i></a> --}}
                                         <a aria-label="Quick view" id="{{ $item->id }}" onclick="productView(this.id)"
@@ -126,8 +126,7 @@
                                         @endphp
                                         <input class="form-check-input" type="checkbox" name="category[]"
                                             id="exampleCheckbox{{ $item->id }}" value="{{ $item->slug }}"
-                                            @if (!empty($filterCat) && in_array($item->slug, $filterCat)) checked @endif
-                                            onchange="this.form.submit()" />
+                                            @if (!empty($filterCat) && in_array($item->slug, $filterCat))  @endif onchange="this.form.submit()" />
                                         <label class="form-check-label"
                                             for="exampleCheckbox{{ $item->id }}"><span>{{ $item->name }}
                                                 ({{ count($products) }})
@@ -137,6 +136,8 @@
 
 
                                 </div>
+
+
                                 @if (!empty($_GET['weight']))
                                     @php
                                         $filterWeight = explode(',', $_GET['weight']);
@@ -150,8 +151,7 @@
                                         @endphp
                                         <input class="form-check-input" type="checkbox" name="weight[]"
                                             id="exampleWeight{{ $weight->id }}" value="{{ $weight->gram }}"
-                                            @if (!empty($filterWeight) && in_array($weight->gram, $filterWeight)) checked @endif
-                                            onchange="this.form.submit()" />
+                                            @if (!empty($filterWeight) && in_array($weight->gram, $filterWeight))  @endif onchange="this.form.submit()" />
                                         <label class="form-check-label"
                                             for="exampleWeight{{ $weight->id }}"><span>{{ $weight->gram }}
                                                 grams
@@ -162,6 +162,12 @@
 
 
                                 </div>
+
+
+
+
+
+
 
                                 @if (!empty($_GET['gold']))
                                     @php
@@ -175,9 +181,8 @@
                                             $products = App\Models\Product::where('gold_id', $gold->id)->get();
                                         @endphp
                                         <input class="form-check-input" type="checkbox" name="gold[]"
-                                            id="exampleGold{{ $gold->id }}" value="{{ $gold->rate }}"
-                                            @if (!empty($filterGold) && in_array($gold->rate, $filterGold)) checked @endif
-                                            onchange="this.form.submit()" />
+                                            id="exampleGold{{ $gold->id }}" value="{{ $gold->name }}"
+                                            @if (!empty($filterGold) && in_array($gold->name, $filterGold))  @endif onchange="this.form.submit()" />
                                         <label class="form-check-label" for="exampleGold{{ $gold->id }}"><span>Rs.
                                                 {{ $gold->rate }}
 
@@ -187,17 +192,47 @@
                                     @endforeach
 
 
+
+
+
+
                                 </div>
 
 
 
+                                @if (!empty($_GET['quality']))
+                                    @php
+                                        $filterQuality = explode(',', $_GET['quality']);
+                                    @endphp
+                                @endif
+                                <label class="fw-900 mt-15">Quality</label>
+                                <div class="custome-checkbox">
+                                    @foreach ($qualities as $quality)
+                                        @php
+                                            $products = App\Models\Product::where('quality_id', $quality->id)->get();
+                                        @endphp
+                                        <input class="form-check-input" type="checkbox" name="quality[]"
+                                            id="exampleQuality{{ $quality->id }}" value="{{ $quality->name }}"
+                                            @if (!empty($filterGold) && in_array($gold->name, $filterGold))  @endif onchange="this.form.submit()" />
+                                        <label class="form-check-label" for="exampleQuality{{ $quality->id }}"><span>
+                                                {{ $quality->name }}
 
+                                                ({{ count($products) }})
+                                            </span></label>
+                                        <br />
+                                    @endforeach
+
+
+
+
+
+
+                                </div>
                             </div>
-                        </div>
-                        {{-- <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
+                            {{-- <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
                             Fillter</a> --}}
-                    </div>
-                    <!-- Product sidebar Widget -->
+                        </div>
+                        <!-- Product sidebar Widget -->
                 </form>
             </div>
         </div>

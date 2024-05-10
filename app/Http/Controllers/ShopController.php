@@ -11,52 +11,66 @@ use App\Models\Product;
 
 class ShopController extends Controller
 {
-    public function shop()
+    public function shop(Request $request)
     {
+        $productsQuery = Product::query()->with('category', 'weight', 'gold', 'quality');
 
-        $products = Product::query();
-
-        if (!empty($_GET['category'])) {
-            $slugs = explode(',', $_GET['category']);
-            $catIds = Category::select('id')->whereIn('slug', $slugs)->pluck('id')->toArray();
-            $products = Product::whereIn('category_id', $catIds)->get();
+        // Filter products by category
+        if ($request->filled('category')) {
+            $categorySlugs = explode(',', $request->input('category'));
+            $productsQuery->whereHas('category', function ($query) use ($categorySlugs) {
+                $query->whereIn('slug', $categorySlugs);
+            });
         }
 
-        if (!empty($_GET['weight'])) {
-            $grams = explode(',', $_GET['weight']);
-            $weightIds = Weight::select('id')->whereIn('gram', $grams)->pluck('id')->toArray();
-            $products = Product::whereIn('weight_id', $weightIds)->get();
-        }
-        if (!empty($_GET['gold'])) {
-            $rates = explode(',', $_GET['gold']);
-            $ratesIds = Gold::select('id')->whereIn('rate', $rates)->pluck('id')->toArray();
-            $products = Product::whereIn('gold_id', $ratesIds)->get();
-        }
-        // if (!empty($_GET['quality'])) {
-        //     $qualities = explode(',', $_GET['quality']);
-        //     $qualitiesIds = Quality::select('id')->whereIn('name', $qualities)->pluck('id')->toArray();
-        //     $products = Product::whereIn('quality_id', $qualitiesIds)->get();
-        // }
-        else {
-            $products = Product::where('status', 1)->orderBy('id', 'DESC')->get();
+        // Filter products by weight
+        if ($request->filled('weight')) {
+            $weights = explode(',', $request->input('weight'));
+            $productsQuery->whereHas('weight', function ($query) use ($weights) {
+                $query->whereIn('gram', $weights);
+            });
         }
 
+
+        if ($request->filled('gold')) {
+            $golds = explode(',', $request->input('gold'));
+            $productsQuery->whereHas('gold', function ($query) use ($golds) {
+                $query->whereIn('name', $golds);
+            });
+        }
+
+
+        if ($request->filled('quality')) {
+            $qualities = explode(',', $request->input('quality'));
+            $productsQuery->whereHas('quality', function ($query) use ($qualities) {
+                $query->whereIn('name', $qualities);
+            });
+        }
+
+        // Apply additional constraints (e.g., status, ordering)
+        $productsQuery->where('status', 1)
+            ->orderBy('id', 'DESC');
+
+        // Execute the query to fetch products
+        $products = $productsQuery->get();
+
+        // Fetch all categories and weights for display purposes
         $categories = Category::orderBy('name', 'ASC')->get();
-        $weights = Weight::get();
-        $golds = Gold::get();
-        $qualities = Quality::get();
-
+        $weights = Weight::orderBy('gram', 'ASC')->get();
+        $golds = Gold::orderBy('name', 'ASC')->get();
+        $qualities = Quality::orderBy('name', 'ASC')->get();
 
 
 
         return view('user.shop', compact('categories', 'products', 'weights', 'golds', 'qualities'));
     }
 
+
+
+
     public function shopFilter(Request $request)
     {
         $data = $request->all();
-
-        /// Filter For Category
 
         $catUrl = "";
         if (!empty($data['category'])) {
@@ -80,7 +94,6 @@ class ShopController extends Controller
             }
         }
 
-
         $rateUrl = "";
         if (!empty($data['gold'])) {
             foreach ($data['gold'] as $gold) {
@@ -92,17 +105,22 @@ class ShopController extends Controller
             }
         }
 
-        // $qualityUrl = "";
-        // if (!empty($data['quality'])) {
-        //     foreach ($data['quality'] as $quality) {
-        //         if (empty($qualityUrl)) {
-        //             $qualityUrl .= '&quality=' . $quality;
-        //         } else {
-        //             $qualityUrl .= ',' . $quality;
-        //         }
-        //     }
-        // }
-        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl);
+
+
+
+        $qualityUrl = "";
+        if (!empty($data['quality'])) {
+            foreach ($data['quality'] as $quality) {
+                if (empty($qualityUrl)) {
+                    $qualityUrl .= '&quality=' . $quality;
+                } else {
+                    $qualityUrl .= ',' . $quality;
+                }
+            }
+        }
+
+        return redirect()->route('shop', $catUrl . $weightUrl . $rateUrl . $qualityUrl);
+
 
     }
 }
